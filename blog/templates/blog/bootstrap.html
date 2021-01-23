@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+</head>
+<body>
+  <form method="POST">
+  {% csrf_token %}
+  <div class="backgroundIMG">
+  <div class="container">
+     <div class="row justify-content-center">
+    <h1>Register</h1>
+  </div>
+    <p class="text-center">Please fill in this form to create an account.</p>
+     <p class="text-center">Email:</p>
+    <p class="text-center"> <input type="text" name="email" maxlength="200" required=""
+        id="id_email"></p>
+        <p class="text-center">Password:</p>
+    <p class="text-center"> <input type="password" name="password" maxlength="200" required=""
+        id="id_password"> </p>
+    <i class="far fa-eye-slash" id="togglePassword" onclick="myFunction()"></i>
+    <p class="text-center"><meter max="4" id="password-strength-meter"></meter> </p>
+    <p class="text-center" id="password-strength"></p>
+    <p class="text-center" id="password-strength-text"></p>
+
+    <p class="text-center">Repeat Password:</p>
+    <p class="text-center"> <input type="password" name="Repeatpassword"
+        maxlength="200" required="" id="id_Repeatpassword"></p>
+    <p class="text-center">By creating an account you agree to our <a href="{% url 'Terms' %}">Terms & Privacy</a>.</p>
+    <div class="row">
+       <div class="col text-center">
+           <button class="registerbtn" type="submit">Register</button>
+       </div>
+    </div>
+    <!--<button type="submit" class="registerbtn">Register</button> -->
+    <p class="text-center">Already have an account? <a href="{% url 'social_login' %}">Sign in</a>.</p>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Custom.css' %}">
+</div>
+<script>
+var strength = {
+    0: "Worst ☹",
+    1: "Bad 😐",
+    2: "Weak 🙂",
+    3: "Good 😊",
+    4: "Strong 🥰"
+}
+
+var password = document.getElementById('id_password');
+var meter = document.getElementById('password-strength-meter');
+var text = document.getElementById('password-strength');
+var text2 = document.getElementById('password-strength-text');
+
+password.addEventListener('input', function()
+{
+    var val = password.value;
+    var result = zxcvbn(val);
+
+    // Update the password strength meter
+    meter.value = result.score;
+
+    // Update the text indicator
+    if(val !== "") {
+        text.innerHTML = "Strength: " + "<strong>" + strength[result.score] + "</strong>";
+        text2.innerHTML =  "<span class='feedback'>" + result.feedback.warning + " " + result.feedback.suggestions + "</span";
+    }
+    else {
+        text.innerHTML = "";
+        text2.innerHTML = "";
+    }
+});
+function myFunction() {
+  var x = document.getElementById("id_password");
+  var y = document.getElementById("togglePassword")
+
+  if (x.type === "password") {
+    x.type = "text";
+    y.className = "far fa-eye";
+  } else {
+    x.type = "password";
+    y.className = "far fa-eye-slash";
+  }
+}
+  </script>
+  </body>
+  </html>
