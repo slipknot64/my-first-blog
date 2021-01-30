@@ -22,6 +22,5 @@ urllib3==1.25.7
 django-allauth
 Django-Verify-Email
 fontawesome
-fontawesome-free==4.7.0.post5
 django-fontawesome
 pypandoc==1.5
