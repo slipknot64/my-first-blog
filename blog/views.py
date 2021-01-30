@@ -36,7 +36,10 @@ def Terms(request):
     return render(request, 'blog/Terms & Privacy.html')
 
 def home(request):
-    return render(request, 'blog/Homepage.html')
+    items={
+           'products': Product.objects.all()
+           }
+    return render(request, 'blog/Homepage.html',items)
 
 def Checkout(request):
     return render(request, 'blog/Checkout.html')

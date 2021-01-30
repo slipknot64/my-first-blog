@@ -1482,6 +1482,7 @@ Top Sellers
 </div>
 </div>
 <div class="col-xs-12"><div class='shop_item_preview'><div class="itemcard_list11 itemcard_list"><div class='row owl-carousel'>
+    {% for product in products %}
     <div class="itemlist11 itemlist col-xs-6 col-sm-4 col-xlg-3">
         <a href="/en/dwnld58836-fifa-21-standard-edition-p511305/" class="itemlist__container bgcontain" >
             <div class="itemlist__imageWrapper">
@@ -1490,7 +1491,7 @@ Top Sellers
                 </div>
                  <div class="itemlist__image">
                     <div class="image">
-                                                    <img src="static/GameImgs/Fifa21_standardEdition_XboxOne.jpg">
+                                                    <img src="{{product.image.url}}">
 
                     </div>
                  </div>
@@ -1498,7 +1499,7 @@ Top Sellers
             <div class="itemlist__info">
                  <div class="itemlist__descriptionWrapper">
                      <span class='item_brand_name'></span>                     <div class="itemlist__description">
-                        FIFA 21 Standard Edition Xbox One Download                     </div>
+                        {{ product.title }}                   </div>
                                               <div class="itemlist__summary">
                                                      </div>
                                       </div>
@@ -1508,7 +1509,7 @@ Top Sellers
                      <div class="itemlist__prices">
                                                              <div class="cross_price">£59.99</div>
                                                             <div class="base_price">
-                            <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAATBAMAAADfQ2bzAAAAG1BMVEX////MzMzl5eWZmZl/f39MTExmZmaysrIzMzNBODRMAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAUJJREFUKJGtkjtPw0AQhPfiOHZ5PIqUkVCQy0Ak5NKEIFwaYcKVEULBpRtCSkJ80fxsdtdWkBAVYot77H03Nx6Z6N9qjbLmaeOJztzCai+o/CX1wNVueVEQNzz1HLCTniz8yByYBC/VhChkZoCmggj18fSGzGCxWikz9DqlzCSwAZa8GcAaLCNknZ3hXkaD1CuOT9WpGQgw6ZiNMuOGAcGVMdilGAVw7FztAA1RXggD9rnVi8A9q4nzAxPBMhPiIW+Zc2BGZjV3asmk/uiYkp2Yifhe1b61d6rQl1g6PzlUbo1nJ80QdaCnBh/KNN+MRCniCd/rBJWpxMDJdJr7CzVi6V1DcNtI3pK4xijn87s2S3NzxWJ9ZDFe1yjiPXuuu+/SV4ThZcYhc8JcNu5OfjD+mj08Wjp1fkbRLUr7p1/p9/oCs8Z3Q2woTtAAAAAASUVORK5CYII='>                            </div>
+                                                            {{ product.price }}  </div>
                                               </div>
                  </div>
                     <div class="orderBasket">
@@ -1534,8 +1535,8 @@ Top Sellers
             </div>
         </a>
     </div>
-
-    <div class="itemlist11 itemlist col-xs-6 col-sm-4 col-xlg-3">
+    {% endfor %}
+   <!-- <div class="itemlist11 itemlist col-xs-6 col-sm-4 col-xlg-3">
         <a href="/en/ps4as58-assassins-creed-valhalla-p195131/" class="itemlist__container bgcontain" >
             <div class="itemlist__imageWrapper">
                 <div class="promotionbanners sfw43qtef">
@@ -1722,7 +1723,7 @@ Top Sellers
                                                             <div class="base_price">
                             <img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAATBAMAAADfQ2bzAAAAG1BMVEX////MzMzl5eWZmZl/f39MTExmZmaysrIzMzNBODRMAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAUpJREFUKJGtkjFPw0AMhX1J23Q8EEPGIATqGBWEOobSCsYiQrixQlAyZmlhbGmuej8b20lRJyQkPFg55/PzOydE/xYr5BWtXDEkOnOF1VpY+iEF4GiO/DDrcvJJ4ICt1OTBJ+aHGeC1TENOyHqoS4hQB89LZAbFYqFM7CWnrDcfwHLmUw/WYB4ha+3EO2pnpoLjS3UqBrjSMp8NEyx9IrgyBtsRkhCOnasdoCZi02OKwT432gg8sJo4P2T8DafH+4a5kBazmDi1ZEb+6JgouiyRRtxXNrN2ThU6mB34oQhrXueLk2IXVahvDReFqRvGqNtAxQfc1woqU4qBU7n7Wo1Y+tCduU0ks2Rd58gnk7s4v+I9m9tr9t9B1sf7CrP+jj1X7b1Qx9h/oIyXzBvmsP3mynsmekNR8XReAJknSyfOjymaIrd//Yt+iW9GJ3lHbeTB+wAAAABJRU5ErkJggg=='>                            </div>
                                               </div>
-                 </div>
+                </div>
                     <div class="orderBasket">
                         <div class="itemlist_content basket_with_price">
   <div class="orderbox_price_per_gram" style="display: none;">Price per 100g Â£39,850.00</div>
@@ -2011,7 +2012,7 @@ Top Sellers
             </div>
         </a>
     </div>
-
+-->
 </div></div>
 </div></div>
 </div></div></div><div class="group col-xs-12"><div class='row'><div class='noBackground'>
