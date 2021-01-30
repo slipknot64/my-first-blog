@@ -134,7 +134,7 @@ textarea{resize:vertical}
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-@font-face{font-family:FontAwesome;src:url(../fonts/fontawesome-webfont.eot?v=4.7.0);src:url(../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0) format('embedded-opentype'),url(../fonts/fontawesome-webfont.woff2?v=4.7.0) format('woff2'),url(../fonts/fontawesome-webfont.woff?v=4.7.0) format('woff'),url(../fonts/fontawesome-webfont.ttf?v=4.7.0) format('truetype'),url(../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular) format('svg');font-weight:400;font-style:normal}
+@font-face{font-family:FontAwesome;src:url("static/fontawesome-webfont.eot");src:url("static/fontawesome-webfont.eot") format('embedded-opentype'),url("static/fontawesome-webfont.woff2") format('woff2'),url("static/fontawesome-webfont.woff") format('woff'),url("static/fontawesome-webfont.ttf") format('truetype'),url("static/fontawesome-webfont.svg") format('svg');font-weight:400;font-style:normal}
 .fa-pull-left{float:left}
 .fa-pull-right{float:right}
 .fa.fa-pull-left{margin-right:.3em}
@@ -819,29 +819,7 @@ button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance
 ========================================================= */
 /*! =========================================================
  * bootstrap-slider.js
- *
- * Maintainers:
- *		Kyle Kemp
- *			- Twitter: @seiyria
- *			- Github:  seiyria
- *		Rohit Kalkur
- *			- Twitter: @Rovolutionary
- *			- Github:  rovolution
- *
- * =========================================================
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- * ========================================================= */
+*/
 .slider{display:inline-block;vertical-align:middle;position:relative}
 .slider.slider-horizontal .slider-track{width:100%;top:50%;left:0}
 .slider.slider-horizontal .slider-selection,.slider.slider-horizontal .slider-track-high,.slider.slider-horizontal .slider-track-low{height:100%;top:0;bottom:0}
@@ -878,10 +856,6 @@ button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance
 .slider-tick.in-selection{background-image:-webkit-linear-gradient(top,#89cdef 0,#81bfde 100%);background-image:-o-linear-gradient(top,#89cdef 0,#81bfde 100%);background-image:linear-gradient(to bottom,#89cdef 0,#81bfde 100%);background-repeat:repeat-x;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff89cdef', endColorstr='#ff81bfde', GradientType=0);opacity:1}
 /*!
  * Datepicker for Bootstrap v1.6.4 (https://github.com/eternicode/bootstrap-datepicker)
- *
- * Copyright 2012 Stefan Petre
- * Improvements by Andrew Rowls
- * Licensed under the Apache License v2.0 (http://www.apache.org/licenses/LICENSE-2.0)
  */
 .datepicker{padding:4px;direction:ltr}
 .datepicker.datepicker-rtl,.owl-carousel.owl-rtl{direction:rtl}
@@ -1913,7 +1887,7 @@ body.mcs-dragging .MagicScroll,body.mcs-dragging button.mcs-button.mcs-horizonta
 90%{-webkit-transform:translateY(5px);transform:translateY(5px)}
 100%{-webkit-transform:translateY(0);transform:translateY(0)}
 }
-@font-face{font-family:magicarrows;src:url(../fonts/magicarrows.eot);src:url(../fonts/magicarrows.eot?#iefix) format("embedded-opentype"),url(../fonts/magicarrows.woff) format("woff"),url(../fonts/magicarrows.ttf) format("truetype"),url(../fonts/magicarrows.svg#untitled-font-1) format("svg");font-weight:400;font-style:normal}
+@font-face{font-family:magicarrows;src:url("static/magicarrows.eot");src:url("static/magicarrows.eot") format("embedded-opentype"),url("static/magicarrows.woff") format("woff"),url("static/magicarrows.ttf") format("truetype"),url(../fonts/magicarrows.svg#untitled-font-1) format("svg");font-weight:400;font-style:normal}
 .MagicScroll-horizontal .mcs-button-arrow-prev:before{content:"}"}
 .MagicScroll-horizontal .mcs-button-arrow-next:before{content:"~"}
 .MagicScroll-vertical .mcs-button-arrow-prev:before{content:"\\"}
@@ -4454,7 +4428,7 @@ input[type=file].cropit-image-input{display:none}
  */
 .fa,.fa-stack{display:inline-block}
 .fa-fw,.fa-li{text-align:center}
-@font-face{font-family:FontAwesome;src:url(../fonts/line-awesome.eot?v=1.1.);src:url(../fonts/line-awesome.eot??v=1.1.#iefix) format("embedded-opentype"),url(../fonts/line-awesome.woff2?v=1.1.) format("woff2"),url(../fonts/line-awesome.woff?v=1.1.) format("woff"),url(../fonts/line-awesome.ttf?v=1.1.) format("truetype"),url(../fonts/line-awesome.svg?v=1.1.#fa) format("svg");font-weight:400;font-style:normal}
+@font-face{font-family:FontAwesome;src:url("static/line-awesome.eot");src:url("static/line-awesome.eot") format("embedded-opentype"),url("static/)line-awesome.woff2") format("woff2"),url("static/)line-awesome.woff") format("woff"),url("static/)line-awesome.ttf") format("truetype"),url(../fonts/line-awesome.svg?v=1.1.#fa) format("svg");font-weight:400;font-style:normal}
 .fa{font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}
 .fa-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
 .fa-2x{font-size:2em}
