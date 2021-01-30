@@ -24,3 +24,4 @@ Django-Verify-Email
 fontawesome
 fontawesome-free
 django-fontawesome
+pypandoc==1.5
