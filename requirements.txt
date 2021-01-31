@@ -23,3 +23,5 @@ django-allauth
 Django-Verify-Email
 pypandoc==1.5
 django-heroku
+gunicorn
+whitenoise
