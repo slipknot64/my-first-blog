@@ -134,7 +134,7 @@ textarea{resize:vertical}
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-@font-face{font-family:FontAwesome;src:url("static/fontawesome-webfont.eot");src:url("static/fontawesome-webfont.eot") format('embedded-opentype'),url("static/fontawesome-webfont.woff2") format('woff2'),url("static/fontawesome-webfont.woff") format('woff'),url("static/fontawesome-webfont.ttf") format('truetype'),url("static/fontawesome-webfont.svg") format('svg');font-weight:400;font-style:normal}
+@font-face{font-family:FontAwesome;src:url('blog/static/fontawesome-webfont.eot');src:url("static/fontawesome-webfont.eot") format('embedded-opentype'),url("static/fontawesome-webfont.woff2") format('woff2'),url("static/fontawesome-webfont.woff") format('woff'),url("static/fontawesome-webfont.ttf") format('truetype'),url("static/fontawesome-webfont.svg") format('svg');font-weight:400;font-style:normal}
 .fa-pull-left{float:left}
 .fa-pull-right{float:right}
 .fa.fa-pull-left{margin-right:.3em}
