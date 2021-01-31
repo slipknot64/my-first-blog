@@ -22,3 +22,4 @@ urllib3==1.25.7
 django-allauth
 Django-Verify-Email
 pypandoc==1.5
+django-heroku
