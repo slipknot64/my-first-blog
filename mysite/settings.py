@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -145,3 +145,6 @@ EMAIL_HOST_USER = 'SG.0MZhVGWmQ8m9qvXoDl7LCA.CaOjpvYWPwMBq9AXu7MyvCIKUnsOFUlp1Xg
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
