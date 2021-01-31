@@ -21,6 +21,4 @@ sqlparse==0.3.0
 urllib3==1.25.7
 django-allauth
 Django-Verify-Email
-fontawesome
-django-fontawesome
 pypandoc==1.5
