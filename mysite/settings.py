@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +25,7 @@ SECRET_KEY = 'd#vdgxh80e4dp@8q3758ryf0(17k992=qlw&ug4r-efjc(5dei'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'mrmapp.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 
 
 # Application definition
@@ -136,8 +136,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
 
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 LOGIN_REDIRECT_URL= "/"
 
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
@@ -147,6 +145,3 @@ EMAIL_HOST_USER = 'SG.0MZhVGWmQ8m9qvXoDl7LCA.CaOjpvYWPwMBq9AXu7MyvCIKUnsOFUlp1Xg
 EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-
-# Activate Django-Heroku.
-django_heroku.settings(locals())
