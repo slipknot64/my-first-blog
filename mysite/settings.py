@@ -133,14 +133,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
 MEDIA_URL = '/media/'
@@ -157,7 +155,3 @@ EMAIL_USE_TLS = True
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
