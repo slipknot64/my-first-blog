@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     #providers
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
-    
-    'fontawesome-free',
 ]
 
 SITE_ID = 1
