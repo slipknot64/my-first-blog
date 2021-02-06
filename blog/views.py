@@ -75,3 +75,6 @@ def product_list(request):
 
 def delivery(request):
     return render(request, 'blog/Delivery.html')
+
+def item(request):
+    return render(request, 'blog/item.html')
