@@ -815,7 +815,7 @@ button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance
 .hidden{display:none!important}
 .affix{position:fixed}
 /*! =======================================================
-                      VERSION  9.2.0
+                      VERSION  9.2.0              
 ========================================================= */
 /*! =========================================================
  * bootstrap-slider.js
@@ -5140,3 +5140,4 @@ input[type=file].cropit-image-input{display:none}
 .fa-youtube:before{content:"\f38b"}
 .fa-youtube-play:before{content:"\f38c"}
 .fa-youtube-square:before{content:"\f38d"}
+.grecaptcha-badge {bottom:110px!important;z-index:2002;}
