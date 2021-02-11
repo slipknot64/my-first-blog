@@ -80,4 +80,4 @@ def item(request):
     return render(request, 'blog/item.html')
     
 def account(request):
-    return render(request, 'blog/account.html')
+    return render(request, 'blog/Account.html')
