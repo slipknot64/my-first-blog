@@ -11,7 +11,7 @@ def register(request):
     if request.method == "POST":
         form = UserAccountForm(request.POST)
         if form.is_valid():
-            send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigitalplc.co.uk', ['to@example.com'], fail_silently=False)
+            #send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigitalplc.co.uk', ['to@example.com'], fail_silently=False)
             user = form.save(commit=False)
             user.is_active = False
             user.save()
