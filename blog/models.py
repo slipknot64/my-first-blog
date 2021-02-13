@@ -12,6 +12,7 @@ CATEGORY_CHOICES = (
 
 class UserAccount(models.Model):
     email = models.CharField(max_length=200)
+    username = models.CharField(max_length=200, default = '')
     password = models.CharField(max_length=200)
     Repeatpassword = models.CharField(max_length=200, default = '')
     created_date = models.DateTimeField(default=timezone.now)

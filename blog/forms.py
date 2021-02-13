@@ -7,14 +7,14 @@ class UserAccountForm(forms.ModelForm):
 
     class Meta:
         model = UserAccount
-        fields = ('email', 'password', 'Repeatpassword')
+        fields = ('email', 'username', 'password', 'Repeatpassword')
 
 
 class AccountCheckForm(forms.ModelForm):
 
     class Meta:
         model = UserAccount
-        fields = ('email', 'password')
+        fields = ('email', 'username', 'password')
 
 class ImageForm(forms.ModelForm):
 
