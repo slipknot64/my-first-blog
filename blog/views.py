@@ -39,7 +39,7 @@ def Terms(request):
 
 class HomeView(ListView):
     model = Product
-    template_name = "Homepage.html"
+    template_name = "blog/Homepage.html"
 
 
 def home(request):
