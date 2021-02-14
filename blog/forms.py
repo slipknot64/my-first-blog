@@ -15,6 +15,19 @@ class AccountCheckForm(forms.ModelForm):
     class Meta:
         model = UserAccount
         fields = ('email', 'username', 'password')
+        
+class AuthenticationForm(forms.ModelForm):
+    email = forms.EmailField(required=True)
+    class Meta:
+        model = UserAccount
+        fields = ("email", "password")
+
+    def save(self, commit=True):
+        user = super(AuthenticationForm, self).save(commit=False)
+        user.email = self.cleaned_data["email"]
+        if commit:
+            user.save()
+        return user
 
 class ImageForm(forms.ModelForm):
 

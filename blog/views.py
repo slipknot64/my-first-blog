@@ -3,6 +3,7 @@ from .models import Product, OrderItem, Order
 from .forms import AccountCheckForm
 from .forms import UserAccountForm
 from .forms import ProductForm
+from .forms import AuthenticationForm
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from django.core.mail import send_mail
@@ -21,17 +22,17 @@ def register(request):
         form = UserAccountForm()
     return render(request, 'blog/bootstrap.html', {'form' : form})
 
-def signin(request):
-    if request.method == "POST":
-        form = AccountCheckForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            check = UserAccount.objects.get(email = user.email)
-            if check.password == user.password:
-                return redirect('home')
-    else:
-        form = AccountCheckForm()
-    return render(request, 'blog/Social Login Form.html', {'form' : form})
+#def signin(request):
+    #if request.method == "POST":
+      #  form = AccountCheckForm(request.POST)
+       # if form.is_valid():
+           # user = form.save(commit=False)
+           # check = UserAccount.objects.get(email = user.email)
+            #if check.password == user.password:
+             #   return redirect('home')
+   # else:
+      #  form = AccountCheckForm()
+    #return render(request, 'blog/Social Login Form.html', {'form' : form})
 
 def Terms(request):
     return render(request, 'blog/Terms & Privacy.html')
@@ -88,3 +89,27 @@ def item(request):
 
 def account(request):
     return render(request, 'blog/Account.html')
+
+def logout_request(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("blog/Homepage.html")
+    
+
+def login_request(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.info(request, f"You are now logged in as {username}")
+                return redirect('blog/Homepage.html')
+            else:
+                messages.error(request, "Invalid username or password.")
+    form = AuthenticationForm()
+    return render(request = request,
+                    template_name = "blog/Social Login Form.html",
+                    context={"form":form})

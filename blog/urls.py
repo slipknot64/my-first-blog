@@ -6,7 +6,7 @@ from .views import (HomeView)
 urlpatterns = [
     path('register/', views.register, name='register'),
 	path('Terms/', views.Terms, name='Terms'),
-	path('social_login/', views.signin, name='social_login'),
+	#path('social_login/', views.signin, name='social_login'),
     path('', HomeView.as_view(), name='home'),
     path('Checkout', views.Checkout, name='Checkout'),
     path('Xbox', views.Xbox, name='Xbox'),
@@ -20,4 +20,6 @@ urlpatterns = [
     path('delivery', views.delivery, name='delivery'),
     path('item/', views.item, name='item'),
     path('account', views.account, name='account'),
+    path("logout", views.logout_request, name="logout"),
+    path("social_login/", views.login_request, name="social_login"),
 ]
