@@ -169,12 +169,12 @@
             <div class="navigation_block_headline">Help & Settings</div>
             <div class="user_account_mobile"><div class="component header_account">            <div class="user_account_block account_link">
             <a
-                class="active"                    href="/en/account/?action=shop_login_account">
+                class="active"                    href="{% url 'account' %}">
                 <span class="fa fa-user"></span>
                 <div class="text_wrapper">
                     <span class="description">
                         Account                    </span>
-                    <span class="info">mahmood</span>
+                    <span class="info">{{ useraccount.username }}</span>
                 </div>
             </a>
         </div>
@@ -287,12 +287,12 @@
                 <div id="header_account">
                     <div class="user_account"><div class="component header_account">            <div class="user_account_block account_link">
             <a
-                class="active"                    href="/en/account/?action=shop_login_account">
+                class="active"                    href="{% url 'account' %}">
                 <span class="fa fa-user"></span>
                 <div class="text_wrapper">
                     <span class="description">
                         Account                    </span>
-                    <span class="info">mahmood</span>
+                    <span class="info">{{ useraccount.username }}</span>
                 </div>
             </a>
         </div>
