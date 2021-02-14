@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.utils import timezone
+from django.shortcuts import reverse
 
 CATEGORY_CHOICES = (
     ('PS5', 'PlayStation 5'),
@@ -33,6 +34,7 @@ class Product(models.Model):
     stock = models.IntegerField(default='0')
     pre_order = models.IntegerField(default='0')
     back_order = models.IntegerField(default='0')
+    slug = models.SlugField(default="")
     created_date = models.DateTimeField(default=timezone.now)
 
     def publish(self):
@@ -41,17 +43,22 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("item", kwargs={
+             'slug': self.slug
+        })
+
 class Image(models.Model):
     image = models.ImageField(blank=True, null=True)
     def publish(self):
         self.save()
-        
+
 class OrderItem(models.Model):
     user = models.ForeignKey(Product, on_delete=models.CASCADE, default="")
-    
+
     def __str__(self):
         return self.title
-        
+
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE)
@@ -59,10 +66,6 @@ class Order(models.Model):
     start_date = models.DateTimeField(auto_now_add=True)
     ordered_date = models.DateTimeField()
     ordered = models.BooleanField(default=False)
-    
+
     def __str__(self):
         return self.title
-    
-    
-    
-    

@@ -42,12 +42,15 @@ class HomeView(ListView):
     model = Product
     template_name = "blog/Homepage.html"
 
+class ItemDetailView(DetailView):
+    model = Product
+    template_name = "blog/item.html"
 
-def home(request):
-    items={
-           'products': Product.objects.all()
-           }
-    return render(request, 'blog/Homepage.html',items)
+#def home(request):
+#    items={
+#           'products': Product.objects.all()
+#           }
+#    return render(request, 'blog/Homepage.html',items)
 
 def Checkout(request):
     return render(request, 'blog/Checkout.html')
@@ -84,8 +87,8 @@ def product_list(request):
 def delivery(request):
     return render(request, 'blog/Delivery.html')
 
-def item(request):
-    return render(request, 'blog/item.html')
+#def item(request):
+#    return render(request, 'blog/item.html')
 
 def account(request):
     return render(request, 'blog/Account.html')
