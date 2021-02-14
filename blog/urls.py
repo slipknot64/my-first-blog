@@ -1,12 +1,13 @@
 from django.urls import path
 from . import views
 from django.urls import include
+from .views import (HomeView)
 
 urlpatterns = [
     path('register/', views.register, name='register'),
 	path('Terms/', views.Terms, name='Terms'),
 	path('social_login/', views.signin, name='social_login'),
-    path('', views.home, name='home'),
+    path('', HomeView.as_view(), name='home'),
     path('Checkout', views.Checkout, name='Checkout'),
     path('Xbox', views.Xbox, name='Xbox'),
     path('playstation5', views.playstation5, name='playstation5'),

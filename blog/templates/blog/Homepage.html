@@ -1482,7 +1482,7 @@ Top Sellers
 </div>
 </div>
 <div class="col-xs-12"><div class='shop_item_preview'><div class="itemcard_list11 itemcard_list"><div class='row owl-carousel'>
-    {% for product in products %}
+    {% for product in object_list %}
     <div class="itemlist11 itemlist col-xs-6 col-sm-4 col-xlg-3">
         <a href="{% url 'item' %}" class="itemlist__container bgcontain" >
             <div class="itemlist__imageWrapper">

@@ -4,6 +4,7 @@ from .forms import AccountCheckForm
 from .forms import UserAccountForm
 from .forms import ProductForm
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import ListView, DetailView
 from django.core.mail import send_mail
 
 # Create your views here.
@@ -34,6 +35,12 @@ def signin(request):
 
 def Terms(request):
     return render(request, 'blog/Terms & Privacy.html')
+
+
+class HomeView(ListView):
+    model = Product
+    template_name = "Homepage.html"
+
 
 def home(request):
     items={
