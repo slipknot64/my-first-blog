@@ -147,7 +147,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 </div>
             </div>
                         <div class="user_account_block login_link">
-            <a href="{% url 'social_login' %}">
+            {% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'social_login' %}">Log In</a>
+{% endif %}
+{% endblock %}
             <span class="fa fa-user"></span>
             <div class="text_wrapper">
                 <span class="description">Account</span>
@@ -173,7 +180,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <header>
         <div id="header_logo"><div class="component header_logo">
 <div class="textcontent noBackground" >
-<a href="https://www.shopto.net"><img alt="" src="/userdata/images/Main-ShopTo-Logo-ba.svg" style="width: 300px; height: 100px;" /></a>
+<!--<a href="https://www.shopto.net"><img alt="" src="/userdata/images/Main-ShopTo-Logo-ba.svg" style="width: 300px; height: 100px;" /></a> -->
 </div>
 </div></div>
         <div class="header_right">

@@ -21,7 +21,7 @@
 <header>
         <div id="header_logo"><div class="component header_logo">
 <div class="textcontent noBackground">
-<a href="https://www.shopto.net"><img alt="" src="/userdata/images/Main-ShopTo-Logo-ba.svg" style="width: 300px; height: 100px;"></a>
+<!--<a href="https://www.shopto.net"><img alt="" src="/userdata/images/Main-ShopTo-Logo-ba.svg" style="width: 300px; height: 100px;"></a>-->
 </div>
 </div></div>
         <div class="header_right">
@@ -106,7 +106,7 @@
                     <div class="component header_basket">
 <div id="header_basket" class=" ">
     <div class="shopping_bag user_account_block js-control-mini-basket">
-        <a href="/en/basket/">
+        <a href="{{ object.get_add_to_cart_url }}">
             <span class="fa fa-shopping-cart" aria-hidden="true"><span class="js-headline-qty basket_amount_badge">0</span></span>
             <div class="text_wrapper">
                 <span class=" description">Cart </span>
@@ -156,7 +156,8 @@
       <br>
       <p> {{ object.description }} </p>
       <p> Quantity: <input type="number" min="1" max="5"> </p>
-      <button class="AddToCartbtn", style="background-color: #FF1A00" type="submit">Add to Cart</button>
+      <!--<button class="AddToCartbtn", style="background-color: #FF1A00" type="submit">Add to Cart</button>-->
+	  <a href="{{ object.get_add_to_cart_url }}" "class"=AddToCartbtn, "style"=background-color: #FF1A00">Add to Cart</a>
     </div>
 
 <link rel="stylesheet" href="{% static 'item.css' %}">

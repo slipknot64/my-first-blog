@@ -47,6 +47,12 @@ class Product(models.Model):
         return reverse("item", kwargs={
              'slug': self.slug
         })
+        
+    def get_add_cart_url(self):
+        return reverse("core:add-to-cart", kwargs={
+            'slug': self.slug
+        })
+        add-to-cart        
 
 class Image(models.Model):
     image = models.ImageField(blank=True, null=True)
@@ -55,9 +61,9 @@ class Image(models.Model):
 
 class OrderItem(models.Model):
     user = models.ForeignKey(Product, on_delete=models.CASCADE, default="")
-
+    quantity = models.IntegerField(default=1)
     def __str__(self):
-        return self.title
+        return f"{self.quantity} of {self.item.title}"
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
