@@ -415,8 +415,7 @@ header{padding-top:31px}
 .header_info_nav li{padding-top:0;padding-bottom:0}
 }
 
-
-
+/* Add our own css below do not change css above */
 
 .IMG{
     padding-left: 500px
@@ -424,5 +423,3 @@ header{padding-top:31px}
 input, label {
     margin: .4rem 0;
 }
-
-/* Add our own css below do not change css above
