@@ -98,7 +98,7 @@ def logout_request(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect("home")
-    
+
 
 def login_request(request):
     if request.method == 'POST':
@@ -117,22 +117,46 @@ def login_request(request):
     return render(request = request,
                     template_name = "blog/login.html",
                     context={"form":form})
-                    
+
+
+#def add_to_cart(request, slug):
+#    product = get_object_or_404(Product, slug=slug)
+#    order_item = OrderItem.objects.create(product=product)
+#    order_qs= Order.objects.filter(user=request.user, is_ordered=False)
+#    if order_qs.exists():
+#        oder = order_qs[0]
+#        # check if order item is in the order
+#        if order.item.filter(item__slug=item.slug).exists():
+#           order_item.quantity += 1
+#           order_item.save()
+#        else:
+#            order.items.add(order_item)
+#    else:
+#        ordered_date = timezone.now()
+#        order = Order.objects.create(
+#            user=request.user, ordered_date=ordered_date)
+#        order.items.add(order_item)
+#    return redirect("core:product", slug=slug)
+
 def add_to_cart(request, slug):
-    item = get_object_or_404(Item, slug=slug)
-    order_item = OrderItem.objects.create(item=item)
-    order_qs= Order.objects.filter(user=request.user, is_ordered=False)
+    item = get_object_or_404(Product, slug=slug)
+    order_item, created = OrderItem.objects.get_or_create(
+         product=item,
+         user=request.user,
+         ordered=False
+    )
+    order_qs = Order.objects.filter(user=request.user, ordered=False)
     if order_qs.exists():
-        oder = order_qs[0]
-        # check if order item is in the order
-        if order.item.filter(item__slug=item.slug).exists():
-           order_item.quantity += 1
-           order_item.save()
+        order = order_qs[0]
+        #check if the order itme is in the ordered
+        if order.items.filter(product__slug=item.slug).exists():
+            order_item.quantity += 1
+            order_item.save()
         else:
             order.items.add(order_item)
     else:
         ordered_date = timezone.now()
         order = Order.objects.create(
-            user=request.user, ordered_date=ordered_date)
+                    user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
-    return redirect("core:product", slug=slug)
+    return redirect("item", slug=slug)

@@ -22,5 +22,5 @@ urlpatterns = [
     path('account', views.account, name='account'),
     path("logout", views.logout_request, name="logout"),
     path("social_login/", views.login_request, name="social_login"),
-    path('add_to_cart/<slug>/', add_to_cart, name='add-to-cart')
+    path('add_to_cart/<slug>/', views.add_to_cart, name='add_to_cart')
 ]

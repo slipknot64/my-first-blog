@@ -47,12 +47,11 @@ class Product(models.Model):
         return reverse("item", kwargs={
              'slug': self.slug
         })
-        
-    def get_add_cart_url(self):
-        return reverse("core:add-to-cart", kwargs={
+
+    def get_add_to_cart_url(self):
+        return reverse("add_to_cart", kwargs={
             'slug': self.slug
         })
-        add-to-cart        
 
 class Image(models.Model):
     image = models.ImageField(blank=True, null=True)
@@ -60,10 +59,14 @@ class Image(models.Model):
         self.save()
 
 class OrderItem(models.Model):
-    user = models.ForeignKey(Product, on_delete=models.CASCADE, default="")
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE, default="")
+    ordered = models.BooleanField(default=False)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, default="")
     quantity = models.IntegerField(default=1)
+
     def __str__(self):
-        return f"{self.quantity} of {self.item.title}"
+        return f"{self.quantity} of {self.product.title}"
 
 class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -74,4 +77,4 @@ class Order(models.Model):
     ordered = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.title
+        return self.user.username
