@@ -22,14 +22,8 @@ urlpatterns = [
     path('delivery', views.delivery, name='delivery'),
     path('item/<slug>/', ItemDetailView.as_view(), name='item'),
     path('account', views.account, name='account'),
-<<<<<<< HEAD
     path("logout", include('django.contrib.auth.urls')),
     path("social_login/", include('django.contrib.auth.urls')),
     path('add_to_cart/<slug>/', views.add_to_cart, name='add_to_cart'),
     path('remove_from_cart/<slug>/', views.remove_from_cart, name='remove_from_cart')
-=======
-    path("logout", include('django.contrib.auth.urls')),
-    path("social_login/", include('django.contrib.auth.urls')),
-    path('add_to_cart/<slug>/', views.add_to_cart, name='add_to_cart')
->>>>>>> 890c4d72a6473b5bb437278c31f079183119c43a
 ]
