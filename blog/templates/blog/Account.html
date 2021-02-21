@@ -292,7 +292,7 @@
                 <div class="text_wrapper">
                     <span class="description">
                         Account                    </span>
-                    <span class="info">{{ useraccount.username }}</span>
+                    <span class="info">{{ user.username }}</span>
                 </div>
             </a>
         </div>
@@ -637,7 +637,7 @@
                                                     <li><a class="" href="https://support.shopto.net/?sid=q25lpf4kkfoeu6td1d41k3lq77">HelpDesk</a></li>
                                                     <li>
                             <div class="logout_link">
-                                                                <a href="{% url 'logout' %}">
+                                                                <a href="/en/?action=shop_logout">
                                     <i class="fa fa-power-off" aria-hidden="true"></i>
                                     <div class="text_wrapper">
                                     <span class="description">
@@ -652,7 +652,7 @@
             </div>
             <div class="main_content_right col-xs-12 col-sm-12 col-md-9">
                                         <div class="category_info">
-                            <h1 class="shop_site_headline">Welcome Adil mahmood!</h1>
+                            <h1 class="shop_site_headline">Welcome {{ user.username }}!</h1>
 
                             <div class="category_info">
                                 <h1 class="shop_site_headline">Your Account Balance</h1>
@@ -886,14 +886,14 @@ RG12 1WA<br />
 <div class="textcontent noBackground" >
 <h5>Payment</h5>
 <br />
-<img alt="" src="/userdata/images/payment-image-v2.png" style="width: 450px; height: 107px;" />
+<img alt="" src="static/Imgs/payment-image-v2.png" style="width: 450px; height: 107px;" />
 </div>
 </div></div>
                         <div class="footer_shipping col-xs-12 col-sm-4 col-lg-3"><div class="component footer_security">
 <div class="textcontent noBackground" >
 <h5>Security</h5>
 <br />
-<img alt="" src="/userdata/images/Icons/security_all_icons.png" />
+<img alt="" src="static/Imgs/security_all_icons.png" />
 </div>
 </div></div>
                         <div class="footer_socialmedia col-xs-12 col-sm-4 col-lg-3"><div class="component footer_socialmedia">
