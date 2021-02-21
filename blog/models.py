@@ -53,6 +53,11 @@ class Product(models.Model):
             'slug': self.slug
         })
 
+    def get_remove_from_cart_url(self):
+        return reverse("remove_from_cart", kwargs={
+            'slug': self.slug
+        })
+
 class Image(models.Model):
     image = models.ImageField(blank=True, null=True)
     def publish(self):
