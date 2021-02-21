@@ -102,21 +102,21 @@ def logout_request(request):
 
 def login_request(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
+        form = AccountCheckForm(request.POST)
         if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
+            user = form.save(commit=False)
+            #check = UserAccount.objects.get(email = user.email)
+            check = UserAccount.objects.get(username = user.username)
+            if check.password == user.password:
+                user = authenticate(username=user.username, password=user.password)
             if user is not None:
                 login(request, user)
-                messages.info(request, f"You are now logged in as {username}")
-                return redirect('blog/Homepage.html')
+                messages.info(request, f"You are now logged in as {user.username}")
+                return redirect('home')
             else:
                 messages.error(request, "Invalid username or password.")
-    form = AuthenticationForm()
-    return render(request = request,
-                    template_name = "blog/login.html",
-                    context={"form":form})
+                form = AccountCheckForm()
+            return render(request = request, template_name = "blog/login.html",context={"form":form})
 
 def add_to_cart(request, slug):
     item = get_object_or_404(Product, slug=slug)
