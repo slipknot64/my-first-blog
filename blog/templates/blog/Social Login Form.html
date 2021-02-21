@@ -16,6 +16,14 @@
 </head>
 <div class="backgroundIMG">
 </div>
+<head>
+ <script src="https://www.google.com/recaptcha/api.js"></script>
+ <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
+</head>
 <body>
 {% block content %}
 {{user}}
@@ -38,6 +46,10 @@
         Don't have an account? <a href="{% url 'register' %}" target="blank"><strong>register here</strong></a>!
     </div>
 	{% endblock %}
+	<button class="g-recaptcha" 
+        data-sitekey="reCAPTCHA_site_key" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button>
 </body>
 <link rel="stylesheet" href="{% static 'Social Login.css' %}">
 </html>
