@@ -2,6 +2,8 @@ from django.urls import path
 from . import views
 from django.urls import include
 from .views import (HomeView, ItemDetailView, add_to_cart)
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     path('register/', views.register, name='register'),
@@ -20,8 +22,14 @@ urlpatterns = [
     path('delivery', views.delivery, name='delivery'),
     path('item/<slug>/', ItemDetailView.as_view(), name='item'),
     path('account', views.account, name='account'),
-    path("logout", views.logout_request, name="logout"),
-    path("social_login/", views.login_request, name="social_login"),
+<<<<<<< HEAD
+    path("logout", include('django.contrib.auth.urls')),
+    path("social_login/", include('django.contrib.auth.urls')),
     path('add_to_cart/<slug>/', views.add_to_cart, name='add_to_cart'),
     path('remove_from_cart/<slug>/', views.remove_from_cart, name='remove_from_cart')
+=======
+    path("logout", include('django.contrib.auth.urls')),
+    path("social_login/", include('django.contrib.auth.urls')),
+    path('add_to_cart/<slug>/', views.add_to_cart, name='add_to_cart')
+>>>>>>> 890c4d72a6473b5bb437278c31f079183119c43a
 ]

@@ -19,7 +19,7 @@ def register(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            return redirect('social_login')
+            return redirect('login')
     else:
         form = UserAccountForm()
     return render(request, 'blog/bootstrap.html', {'form' : form})

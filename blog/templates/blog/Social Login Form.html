@@ -21,7 +21,7 @@
 {{user}}
 <div class="login-form">
     <div class="container">
-    <form method="POST">
+    <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
 		{{form.as_p}}
         <h2 class="text-center">Sign in</h2>
