@@ -18,7 +18,7 @@ def register(request):
             user = form.save(commit=False)
             user.is_active = False
             user.save()
-            return redirect('social_login')
+            return redirect('login')
     else:
         form = UserAccountForm()
     return render(request, 'blog/bootstrap.html', {'form' : form})
@@ -117,26 +117,6 @@ def login_request(request):
     return render(request = request,
                     template_name = "blog/login.html",
                     context={"form":form})
-
-
-#def add_to_cart(request, slug):
-#    product = get_object_or_404(Product, slug=slug)
-#    order_item = OrderItem.objects.create(product=product)
-#    order_qs= Order.objects.filter(user=request.user, is_ordered=False)
-#    if order_qs.exists():
-#        oder = order_qs[0]
-#        # check if order item is in the order
-#        if order.item.filter(item__slug=item.slug).exists():
-#           order_item.quantity += 1
-#           order_item.save()
-#        else:
-#            order.items.add(order_item)
-#    else:
-#        ordered_date = timezone.now()
-#        order = Order.objects.create(
-#            user=request.user, ordered_date=ordered_date)
-#        order.items.add(order_item)
-#    return redirect("core:product", slug=slug)
 
 def add_to_cart(request, slug):
     item = get_object_or_404(Product, slug=slug)
