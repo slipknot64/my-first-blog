@@ -97,7 +97,7 @@ def account(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
-    return redirect("blog/Homepage.html")
+    return redirect("home")
     
 
 def login_request(request):
@@ -115,7 +115,7 @@ def login_request(request):
                 messages.error(request, "Invalid username or password.")
     form = AuthenticationForm()
     return render(request = request,
-                    template_name = "blog/Social Login Form.html",
+                    template_name = "blog/login.html",
                     context={"form":form})
                     
 def add_to_cart(request, slug):
