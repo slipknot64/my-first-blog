@@ -9,6 +9,8 @@ from django.contrib import messages
 from django.views.generic import ListView, DetailView
 from django.utils import timezone
 from django.core.mail import send_mail
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 def register(request):
@@ -54,6 +56,9 @@ class ItemDetailView(DetailView):
 #           }
 #    return render(request, 'blog/Homepage.html',items)
 
+def cart(request):
+    return render(request, 'blog/Cart.html')
+
 def Checkout(request):
     return render(request, 'blog/Checkout.html')
 
@@ -81,6 +86,9 @@ def Smartphones(request):
 def product_list(request):
     products = Product.objects.all()
     return render(request, 'blog/product.html', {'products' : products})
+
+def Cart(request):
+    return render(request, 'blog/Cart.html')
 
 #def product_detail(request, pk):
 #    product = get_object_or_404(Product, pk=pk)
@@ -119,48 +127,74 @@ def login_request(request):
                 form = AccountCheckForm()
             return render(request = request, template_name = "blog/login.html",context={"form":form})
 
-def add_to_cart(request, slug):
-    item = get_object_or_404(Product, slug=slug)
-    order_item, created = OrderItem.objects.get_or_create(
-         product=item,
-         user=request.user,
-         ordered=False
-    )
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
-    if order_qs.exists():
-        order = order_qs[0]
+#def add_to_cart(request, slug):
+#    item = get_object_or_404(Product, slug=slug)
+#    order_item, created = OrderItem.objects.get_or_create(
+#         product=item,
+#         user=request.user,
+#         ordered=False
+#    )
+#    order_qs = Order.objects.filter(user=request.user, ordered=False)
+#    if order_qs.exists():
+#        order = order_qs[0]
+        #check if the order time is in the ordered
+#        if order.items.filter(product__slug=item.slug).exists():
+#            order_item.quantity += 1
+#            order_item.save()
+#            return redirect("item", slug=slug)
+#        else:
+#            order.items.add(order_item)
+#            return redirect("item", slug=slug)
+#    else:
+#        ordered_date = timezone.now()
+#        order = Order.objects.create(
+#                    user=request.user, ordered_date=ordered_date)
+#        order.items.add(order_item)
+#        return redirect("item", slug=slug)
+
+
+#def remove_from_cart(request, slug):
+#    item = get_object_or_404(Product, slug=slug)
+#    order_qs = Order.objects.filter(user=request.user, ordered=False)
+#    if order_qs.exists():
+#        order = order_qs[0]
         #check if the order itme is in the ordered
-        if order.items.filter(product__slug=item.slug).exists():
-            order_item.quantity += 1
-            order_item.save()
-            return redirect("item", slug=slug)
-        else:
-            order.items.add(order_item)
-            return redirect("item", slug=slug)
-    else:
-        ordered_date = timezone.now()
-        order = Order.objects.create(
-                    user=request.user, ordered_date=ordered_date)
-        order.items.add(order_item)
-        return redirect("item", slug=slug)
+#        if order.items.filter(product__slug=item.slug).exists():
+#            order_item = OrderItem.objects.filter(
+#                 product=item,
+#                 user=request.user,
+#                 ordered=False
+#            ) [0]
+#            order.items.remove(order_item)
+#            return redirect("item", slug=slug)
+#        else:
+#            return redirect("item", slug=slug)
+
+#    else:
+#        return redirect("item", slug=slug)
+
+def updateItem(request):
+    data = json.loads(request.body)
+    object = data['object']
+    action = data['action']
+
+    print('Action:', action)
+    print('object:', object)
 
 
-def remove_from_cart(request, slug):
-    item = get_object_or_404(Product, slug=slug)
-    order_qs = Order.objects.filter(user=request.user, ordered=False)
-    if order_qs.exists():
-        order = order_qs[0]
-        #check if the order itme is in the ordered
-        if order.items.filter(product__slug=item.slug).exists():
-            order_item = OrderItem.objects.filter(
-                 product=item,
-                 user=request.user,
-                 ordered=False
-            ) [0]
-            order.items.remove(order_item)
-            return redirect("item", slug=slug)
-        else:
-            return redirect("item", slug=slug)
+    customer = request.user.customer
+    product - Product.object.get(id=object)
+    order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
-    else:
-        return redirect("item", slug=slug)
+    orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)
+
+    if action == 'add':
+        orderItem.quantity = (orderItem.quantity + 1)
+    elif action == 'remove':
+        orderItem.quantity = (orderItem.quantity - 1)
+
+    orderItem.save()
+
+    if orderItem.quantity <= 0:
+        orderItem.delete()
+    return JsonResponse('Item was added', safe=False)
