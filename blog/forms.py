@@ -1,25 +1,25 @@
 from django import forms
-from .models import UserAccount
+from .models import *
 from .models import Image
 from .models import Product
 
 class UserAccountForm(forms.ModelForm):
 
     class Meta:
-        model = UserAccount
+        model = Customer
         fields = ('email', 'username', 'password', 'Repeatpassword')
 
 
 class AccountCheckForm(forms.ModelForm):
 
     class Meta:
-        model = UserAccount
+        model = Customer
         fields = ('email', 'username', 'password')
         
 class AuthenticationForm(forms.ModelForm):
     email = forms.EmailField(required=True)
     class Meta:
-        model = UserAccount
+        model = Customer
         fields = ("email", "password")
 
     def save(self, commit=True):

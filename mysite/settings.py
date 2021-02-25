@@ -132,9 +132,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'media') 
-MEDIA_URL = '/media/'
+ 
+MEDIA_URL = '/GameImgs/'
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'static/GameImgs')
 
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'

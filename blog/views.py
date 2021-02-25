@@ -1,5 +1,5 @@
-from .models import UserAccount
 from .models import Product, OrderItem, Order
+from .models import *
 from .forms import AccountCheckForm
 from .forms import UserAccountForm
 from .forms import ProductForm
@@ -31,7 +31,7 @@ def register(request):
       #  form = AccountCheckForm(request.POST)
        # if form.is_valid():
            # user = form.save(commit=False)
-           # check = UserAccount.objects.get(email = user.email)
+           # check = Customer.objects.get(email = user.email)
             #if check.password == user.password:
              #   return redirect('home')
    # else:
@@ -48,7 +48,7 @@ class HomeView(ListView):
 
 class ItemDetailView(DetailView):
     model = Product
-    template_name = "blog/item.html"
+    template_name = "blog/main.html"
 
 #def home(request):
 #    items={
@@ -56,11 +56,31 @@ class ItemDetailView(DetailView):
 #           }
 #    return render(request, 'blog/Homepage.html',items)
 
-def cart(request):
-    return render(request, 'blog/Cart.html')
+def Cart(request):
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}    
+    return render(request, 'blog/Cart.html', context)
 
 def Checkout(request):
-    return render(request, 'blog/Checkout.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+
+    context = {'items':items, 'order':order}
+    return render(request, 'blog/Checkout.html', context)
 
 def Xbox(request):
     return render(request, 'blog/Xbox.html')
@@ -87,9 +107,6 @@ def product_list(request):
     products = Product.objects.all()
     return render(request, 'blog/product.html', {'products' : products})
 
-def Cart(request):
-    return render(request, 'blog/Cart.html')
-
 #def product_detail(request, pk):
 #    product = get_object_or_404(Product, pk=pk)
 #    return render(request, 'blog/product_detail.html', {'product': product})
@@ -114,8 +131,8 @@ def login_request(request):
         form = AccountCheckForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            #check = UserAccount.objects.get(email = user.email)
-            check = UserAccount.objects.get(username = user.username)
+            #check = Customer.objects.get(email = user.email)
+            check = Customer.objects.get(username = user.username)
             if check.password == user.password:
                 user = authenticate(username=user.username, password=user.password)
             if user is not None:
@@ -175,15 +192,15 @@ def login_request(request):
 
 def updateItem(request):
     data = json.loads(request.body)
-    object = data['object']
+    productId = data['productId']
     action = data['action']
 
     print('Action:', action)
-    print('object:', object)
+    print('Product:', productId)
 
 
     customer = request.user.customer
-    product - Product.object.get(id=object)
+    product = Product.objects.get(id=productId)
     order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
     orderItem, created = OrderItem.objects.get_or_create(order=order, product=product)

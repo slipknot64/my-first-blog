@@ -3,6 +3,8 @@ from . import views
 from django.urls import include
 from .views import (HomeView, ItemDetailView,)
 from django.contrib.auth import views as auth_views
+from django.conf.urls.static import static
+from django.conf import settings
 
 
 urlpatterns = [
@@ -26,6 +28,8 @@ urlpatterns = [
     path("social_login/", include('django.contrib.auth.urls')),
     #path('add_to_cart/<slug>/', views.add_to_cart, name='add_to_cart'),
     #path('remove_from_cart/<slug>/', views.remove_from_cart, name='remove_from_cart'),
-    path('cart/', views.cart, name='cart'),
-    path('Checkout', views.Checkout, name='checkout'),
+    path('Cart', views.Cart, name='Cart'),
+    path('Checkout', views.Checkout, name='Checkout'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
