@@ -1,14 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Groovy Digital</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Groovy Digital</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css"/>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.2.0/bootstrap-slider.js"></script>
+  <script src="https://kit.fontawesome.com/693a01f8d3.js"></script>
+  <script src="https://use.fontawesome.com/3db02eff8f.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <meta name="robots" content="index,follow" /><link rel="canonical" href="https://www.GroovyDigital.net/en/Xboxseries/"/>    <title>Buy Xbox - Console - Accessory - Video Games - Official Microsoft Retail Partner | GroovyDigital.net</title>
 <meta name="Description" content="Microsoft Official Retail Partner - Buy your new Xbox Serie X or S Console - Software and Accessories at GroovyDigital. Free UK Delivery " />
 <link rel="apple-touch-icon" sizes="180x180" href="/layout/frontend/b2c/dist/favicons/apple-touch-icon.png">
@@ -316,7 +322,7 @@
             <span class="fa fa-shopping-cart" aria-hidden="true"><span class="js-headline-qty basket_amount_badge">0</span></span>
             <div class="text_wrapper">
                 <span class=" description">Cart </span>
-                <span class="info js-headline-price">£0.00 (0)</span>
+                <span class="info js-headline-price">£{{order.get_cart_total|floatformat:2}} ({{cartItems}})</span>
             </div>
         </a>
     </div>
@@ -1371,7 +1377,9 @@ RG12 1WA<br />
 
     });
 </script>
-{% load static %}
 <link rel="stylesheet" href="{% static 'Xbox.css' %}">
-
+<link rel="stylesheet" href="{% static 'fontawesome-webfont.ttf' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+<link rel="stylesheet" href="{% static 'fontawesome-webfont.woff' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+<link rel="stylesheet" href="{% static 'fontawesome-webfont.woff2' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
 </html>

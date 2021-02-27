@@ -75,15 +75,28 @@ def Checkout(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
     else:
         items = []
         order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
 
-    context = {'items':items, 'order':order}
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/Checkout.html', context)
 
 def Xbox(request):
-    return render(request, 'blog/Xbox.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        items = []
+        order = {'get_cart_total':0, 'get_cart_items':0}
+        cartItems = order['get_cart_items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/Xbox.html', context)
 
 def playstation5(request):
     return render(request, 'blog/playstation5.html')
