@@ -13,6 +13,7 @@ urlpatterns = [
 	#path('social_login/', views.signin, name='social_login'),
     path('', HomeView.as_view(), name='home'),
     path('update_item/', views.updateItem, name='update_items'),
+    path('process_order/', views.processOrder, name='process_order'),
     path('Xbox', views.Xbox, name='Xbox'),
     path('playstation5', views.playstation5, name='playstation5'),
     path('PlayStation', views.PlayStation, name='PlayStation'),
