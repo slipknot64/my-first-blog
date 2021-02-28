@@ -3381,7 +3381,7 @@ header .shopping_bag .basket_amount_badge{display:none}
 #form_mobile_search,#form_search{position:relative}
 #form_mobile_search .search_button,#form_search .search_button{background:#eee747;background:-moz-linear-gradient(top,#eee747 0,#CD0000 100%);background:-webkit-linear-gradient(top,#eee747 0,#CD0000 100%);background:linear-gradient(to bottom,#eee747 0,#CD0000 100%);position:absolute;right:0;top:0;color:#fff;cursor:pointer;width:40px;height:100%;text-align:center;font-size:22.4px;display:flex;justify-content:center;align-items:center}
 #form_mobile_search .fa,#form_search .fa{font-weight:700;transform:rotate(270deg);padding-bottom:1px}
-#form_mobile_search .search_field>input,#form_search .search_field>input{padding-right:30px;padding-top:8px;padding-bottom:6px}
+#form_mobile_search .search_field>input,#form_search .search_field>input{padding-right:30px;padding-top:8px;padding-bottom:6px;margin:auto;}
 #primary_navigation{display:flex;align-items:center}
 #primary_navigation .breadcrumb_wrapper{margin-right:50px;line-height:1;padding-bottom:3px}
 #primary_navigation .breadcrumb{white-space:nowrap}

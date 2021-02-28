@@ -1,4 +1,4 @@
-from .models import Product, OrderItem, Order
+from .models import Product, OrderItem, Order, ShippingAddress
 from .models import *
 from .forms import AccountCheckForm
 from .forms import UserAccountForm
@@ -234,7 +234,7 @@ def processOrder(request):
     data = json.loads(request.body)
 
     if request.user.is_authenticated:
-        Customer = request.user.customer
+        customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
         total = float(data['form']['total'])
         order.transaction_id = transaction_id
@@ -252,7 +252,6 @@ def processOrder(request):
                     state=data['shipping']['state'],
                     zipcode=data['shipping']['zipcode'],
                 )
-
     else:
-            print('User is not logged in..')
+        print('User is not logged in..')
     return JsonResponse('Payment complete!', safe=False)

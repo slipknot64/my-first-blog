@@ -307,11 +307,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="component header_basket">
 <div id="header_basket" class=" ">
     <div class="shopping_bag user_account_block js-control-mini-basket">
-        <a href="/en/basket/">
-            <span class="fa fa-shopping-cart" aria-hidden="true"><span class="js-headline-qty basket_amount_badge">0</span></span>
+        <a href="{% url 'Cart' %}">
+            <span class="fa fa-shopping-cart" aria-hidden="true"><span class="js-headline-qty basket_amount_badge">{{cartItems}}</span></span>
             <div class="text_wrapper">
                 <span class=" description">Cart </span>
-                <span class="info js-headline-price">£0.00 (0)</span>
+                <span class="info js-headline-price">£{{order.get_cart_total|floatformat:2}} ({{cartItems}})</span>
             </div>
         </a>
     </div>
@@ -2311,7 +2311,7 @@ RG12 1WA<br />
 <script src="{% static 'js/magiczoom.js' %}"></script>
 <script src="{% static 'js/utils.js' %}"></script>
 <script src="{% static 'js/owl.carousel.js' %}"></script>
-<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script> (fixes site but breaks magicscroll)
+<!--<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>--> (fixes site but breaks magicscroll)
 <script src="{% static 'js/jquery-ui.js' %}"></script>
 <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
 <script src="{% static 'js/aos.js' %}"></script>
