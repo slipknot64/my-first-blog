@@ -2301,6 +2301,29 @@ RG12 1WA<br />
 
     });
 </script>
+<script>
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:2,
+    loop:true,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:2000,
+    autoplayHoverPause:true
+});
+</script> <!--(makes carousel work but still buggy needs adjusting)-->
+<script>
+$(document).ready(function () {
+    $(".owl-dot").owlCarousel({
+
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+        dots: true,
+        items: 2,
+        itemsDesktop: [1199, 3],
+        itemsDesktopSmall: [979, 3]
+    });
+});
+</script>
 <link rel="stylesheet" href="{% static 'homepage.css' %}">
 <link rel="stylesheet" href="{% static 'fontawesome-webfont.ttf' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 <link rel="stylesheet" href="{% static 'fontawesome-webfont.woff' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
@@ -2310,8 +2333,8 @@ RG12 1WA<br />
 <script src="{% static 'js/magicthumb.js' %}"></script>
 <script src="{% static 'js/magiczoom.js' %}"></script>
 <script src="{% static 'js/utils.js' %}"></script>
-<script src="{% static 'js/owl.carousel.js' %}"></script>
-<!--<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>--> (fixes site but breaks magicscroll)
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script> <!--(fixes site but breaks magicscroll)-->
 <script src="{% static 'js/jquery-ui.js' %}"></script>
 <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
 <script src="{% static 'js/aos.js' %}"></script>

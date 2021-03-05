@@ -14,7 +14,7 @@ CATEGORY_CHOICES = (
 
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
-    email = models.CharField(max_length=200)
+    email = models.CharField(max_length=200, null=True)
     username = models.CharField(max_length=200, null=True)
     password = models.CharField(max_length=200)
     Repeatpassword = models.CharField(max_length=200, default = '')

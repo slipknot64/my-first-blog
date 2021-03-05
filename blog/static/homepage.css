@@ -134,7 +134,7 @@ textarea{resize:vertical}
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
-@font-face{font-family:FontAwesome;src:url('blog/static/fontawesome-webfont.eot');src:url("static/fontawesome-webfont.eot") format('embedded-opentype'),url("static/fontawesome-webfont.woff2") format('woff2'),url("static/fontawesome-webfont.woff") format('woff'),url("static/fontawesome-webfont.ttf") format('truetype'),url("static/fontawesome-webfont.svg") format('svg');font-weight:400;font-style:normal}
+@font-face{font-family:FontAwesome;src:url(../static/fontawesome-webfont.eot);src:url(../static/fontawesome-webfont.eot) format('embedded-opentype'),url(../static/fontawesome-webfont.woff2) format('woff2'),url(../static/fontawesome-webfont.woff) format('woff'),url(../static/fontawesome-webfont.ttf) format('truetype'),url(../static/fontawesome-webfont.svg) format('svg');font-weight:400;font-style:normal}
 .fa-pull-left{float:left}
 .fa-pull-right{float:right}
 .fa.fa-pull-left{margin-right:.3em}
@@ -526,7 +526,7 @@ output{padding-top:7px}
 @media screen and (-webkit-min-device-pixel-ratio:0){input[type=date].form-control,input[type=datetime-local].form-control,input[type=month].form-control,input[type=time].form-control{line-height:34px}
 .input-group-sm input[type=date],.input-group-sm input[type=datetime-local],.input-group-sm input[type=month],.input-group-sm input[type=time],input[type=date].input-sm,input[type=datetime-local].input-sm,input[type=month].input-sm,input[type=time].input-sm{line-height:30px}
 .input-group-lg input[type=date],.input-group-lg input[type=datetime-local],.input-group-lg input[type=month],.input-group-lg input[type=time],input[type=date].input-lg,input[type=datetime-local].input-lg,input[type=month].input-lg,input[type=time].input-lg{line-height:46px}
-@font-face{font-family:FontAwesome;src:url(../fonts/line-awesome.svg?v=1.1.#fa) format("svg")}
+@font-face{font-family:FontAwesome;src:url(../static/line-awesome.svg?v=1.1.#fa) format("svg")}
 }
 .checkbox,.radio{position:relative;display:block;margin-top:10px;margin-bottom:10px}
 .checkbox label,.radio label{min-height:20px;padding-left:20px;margin-bottom:0;font-weight:400;cursor:pointer}
@@ -1887,7 +1887,7 @@ body.mcs-dragging .MagicScroll,body.mcs-dragging button.mcs-button.mcs-horizonta
 90%{-webkit-transform:translateY(5px);transform:translateY(5px)}
 100%{-webkit-transform:translateY(0);transform:translateY(0)}
 }
-@font-face{font-family:magicarrows;src:url("static/magicarrows.eot");src:url("static/magicarrows.eot") format("embedded-opentype"),url("static/magicarrows.woff") format("woff"),url("static/magicarrows.ttf") format("truetype"),url(../fonts/magicarrows.svg#untitled-font-1) format("svg");font-weight:400;font-style:normal}
+@font-face{font-family:magicarrows;src:url(../static/magicarrows.eot);src:url(../static/magicarrows.eot) format("embedded-opentype"),url(../static/magicarrows.woff) format("woff"),url(../static/magicarrows.ttf) format("truetype"),url(../static/magicarrows.svg#untitled-font-1) format("svg");font-weight:400;font-style:normal}
 .MagicScroll-horizontal .mcs-button-arrow-prev:before{content:"}"}
 .MagicScroll-horizontal .mcs-button-arrow-next:before{content:"~"}
 .MagicScroll-vertical .mcs-button-arrow-prev:before{content:"\\"}
@@ -1975,7 +1975,7 @@ body.mcs-dragging .MagicScroll,body.mcs-dragging button.mcs-button.mcs-horizonta
 .pass-colorbar{height:3px;background-image:url(passwordstrength.jpg);position:absolute;top:0;left:0}
 .pass-percent,.pass-text{font-size:1em}
 .pass-percent{margin-right:5px}
-@font-face{font-family:magictoolbox-thin;font-weight:400;font-style:normal;src:url(../fonts/magictoolbox-thin.eot);src:url(../fonts/magictoolbox-thin.eot?#iefix) format("embedded-opentype"),url(../fonts/magictoolbox-thin.woff) format("woff"),url(../fonts/magictoolbox-thin.ttf) format("truetype"),url(../fonts/magictoolbox-thin.svg#magictoolbox-thin) format("svg")}
+@font-face{font-family:magictoolbox-thin;font-weight:400;font-style:normal;src:url(../static/magictoolbox-thin.eot);src:url(../static/magictoolbox-thin.eot?#iefix) format("embedded-opentype"),url(../static/magictoolbox-thin.woff) format("woff"),url(../static/magictoolbox-thin.ttf) format("truetype"),url(../static/magictoolbox-thin.svg#magictoolbox-thin) format("svg")}
 .MagicZoom,.mz-button,.mz-expand .mz-expand-stage,.mz-expand .mz-expand-stage .mz-image-stage,.mz-expand .mz-image-stage>figure .mz-caption,.mz-expand-controls,.mz-expand-thumbnails,.mz-figure,.mz-hint,.mz-lens,.mz-loading,.mz-thumb img,.mz-zoom-window{-webkit-box-sizing:border-box;box-sizing:border-box}
 .MagicZoom,.mz-figure{display:inline-block;outline:0!important;font-size:0!important;line-height:100%!important;direction:ltr!important;position:relative;z-index:1;overflow:hidden;margin:0 auto;vertical-align:middle;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform-style:preserve-3d;transform-style:preserve-3d}
 .MagicZoom{-ms-touch-action:pan-y;touch-action:pan-y}
@@ -2168,7 +2168,7 @@ button.mz-button.mz-button-next:before{content:"\a003"}
 .magic-thumbs-button-disabled{opacity:.2;filter:alpha(opacity=20)}
 .flex{flex-wrap:wrap}
 .space_between{justify-content:space-between}
-@font-face{font-family:FontAwesome;src:url(../fonts/line-awesome.woff2) format("woff2");font-weight:400;font-style:normal}
+@font-face{font-family:FontAwesome;src:url(../static/line-awesome.woff2) format("woff2");font-weight:400;font-style:normal}
 body{font-size:16px}
 .h1,.h2,.h3,.h4,.h5,.h6,h1,h2,h3,h4,h5,h6{margin-top:0;margin-bottom:0}
 .h1,.h3,h1,h3,label{font-weight:700}
@@ -3320,8 +3320,6 @@ img{height:auto!important;max-width:100%!important}
 .table_area .table_row .table_cell .table_cell{border-bottom:0}
 .trustinfo_banner .owl-stage-outer{width:100%!important}
 .trustinfo_banner .owl-stage{display:flex;align-items:center;justify-content:space-between}
-@media (min-width:1250px){.trustinfo_banner .owl-stage{width:100%!important}
-}
 .trustinfo_banner .owl-stage:after,.trustinfo_banner .owl-stage:before{display:none}
 .trustinfo_banner .owl-item{max-width:15%}
 @media (max-width:1249px){.trustinfo_banner .owl-item{max-width:25%}
@@ -3754,7 +3752,6 @@ ul{padding-left:18px}
 }
 @media print{a[href]:after{content:none!important}
 }
-#container{overflow-x:hidden}
 .fb_dialog{z-index:1800!important}
 .container,.container-fluid{padding-left:20px;padding-right:20px}
 #breadcrumb{font-size:13px}
@@ -4428,7 +4425,7 @@ input[type=file].cropit-image-input{display:none}
  */
 .fa,.fa-stack{display:inline-block}
 .fa-fw,.fa-li{text-align:center}
-@font-face{font-family:FontAwesome;src:url("static/line-awesome.eot");src:url("static/line-awesome.eot") format("embedded-opentype"),url("static/)line-awesome.woff2") format("woff2"),url("static/)line-awesome.woff") format("woff"),url("static/)line-awesome.ttf") format("truetype"),url(../fonts/line-awesome.svg?v=1.1.#fa) format("svg");font-weight:400;font-style:normal}
+@font-face{font-family:FontAwesome;src:url(../static/line-awesome.eot);src:url(../static/line-awesome.eot) format("embedded-opentype"),url(../static/line-awesome.woff2) format("woff2"),url(../static/line-awesome.woff) format("woff"),url(../static/line-awesome.ttf) format("truetype"),url(../static/line-awesome.svg?v=1.1.#fa) format("svg");font-weight:400;font-style:normal}
 .fa{font:normal normal normal 14px/1 FontAwesome;font-size:inherit;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}
 .fa-lg{font-size:1.33333333em;line-height:.75em;vertical-align:-15%}
 .fa-2x{font-size:2em}
