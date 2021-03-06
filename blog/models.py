@@ -28,7 +28,6 @@ class Customer(models.Model):
         return self.username
 
 class Product(models.Model):
-    name = models.CharField(max_length=200, null=True)
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=3)
     title = models.CharField(max_length=200, null=True)
     price = models.DecimalField(max_digits=7, decimal_places=2)
