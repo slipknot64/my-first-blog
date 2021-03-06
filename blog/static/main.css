@@ -5004,7 +5004,7 @@ input[type=file].cropit-image-input{display:none}
 /* Add our own css below do not change css above */
 
 .IMG{
-    padding-left: 500px
+    padding-left: auto
 }
 input, label {
     margin: .4rem 0;
