@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Customer
 from .models import Image
-from .models import Product, OrderItem, Order
+from .models import Product, OrderItem, Order, ShippingAddress
 from .models import *
 
 admin.site.register(Customer)
