@@ -11,6 +11,7 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 import json
 import datetime
+from .utils import cookieCart, cartData, guestOrder
 # Create your views here.
 def register(request):
     if request.method == "POST":
@@ -56,78 +57,87 @@ class ItemDetailView(DetailView):
 #    return render(request, 'blog/Homepage.html',items)
 
 def Cart(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        try:
-            cart = json.loads(request.COOKIES['cart'])
-        except:
-            cart = {}
-        print('Cart:', cart)
-        items = []
-        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
-        cartItems = order['get_cart_items']
 
-        for i in cart:
-            cartItems += cart[i]["quantity"]
-
-            product = Product.objects.get(id=i)
-            total = (product.price * cart[i]["quantity"])
-
-            order['get_cart_total'] += total
-            order['get_cart_items'] += cart[i]["quantity"]
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}    
     return render(request, 'blog/Cart.html', context)
 
 def Checkout(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        items = []
-        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
-        cartItems = order['get_cart_items']
+    
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/Checkout.html', context)
 
 def Xbox(request):
-    if request.user.is_authenticated:
-        customer = request.user.customer
-        order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-    else:
-        items = []
-        order = {'get_cart_total':0, 'get_cart_items':0, 'shipping':False}
-        cartItems = order['get_cart_items']
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/Xbox.html', context)
 
 def playstation5(request):
-    return render(request, 'blog/playstation5.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/playstation5.html', context)
 
 def PlayStation(request):
-    return render(request, 'blog/PlayStation.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/PlayStation.html', context)
 
 def Microsoft(request):
-    return render(request, 'blog/Microsoft.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/Microsoft.html', context)
 
 def Nintendo(request):
-    return render(request, 'blog/Nintendo.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/Nintendo.html', context)
 
 def TV(request):
-    return render(request, 'blog/TV Electronics.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+    
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/TV Electronics.html', context)
 
 def Smartphones(request):
-    return render(request, 'blog/Tablets mobiles.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/Tablets mobiles.html', context)
 
 def product_list(request):
     products = Product.objects.all()
@@ -249,22 +259,25 @@ def processOrder(request):
     if request.user.is_authenticated:
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
-        total = float(data['form']['total'])
-        order.transaction_id = transaction_id
 
-        if total == order.get_cart_total:
-            order.complete = True
-        order.save()
-
-        if order.shipping == True:
-            ShippingAddress.objects.create(
-                    customer=customer,
-                    order=order,
-                    address=data['shipping']['address'],
-                    city=data['shipping']['city'],
-                    state=data['shipping']['state'],
-                    zipcode=data['shipping']['zipcode'],
-                )
+    
     else:
-        print('User is not logged in..')
+        customer, order = guestOrder(request, data)
+
+    total = float(data['form']['total'])
+    order.transaction_id = transaction_id
+
+    if total == order.get_cart_total:
+        order.complete = True
+    order.save()
+
+    if order.shipping == True:
+        ShippingAddress.objects.create(
+                customer=customer,
+                order=order,
+                address=data['shipping']['address'],
+                city=data['shipping']['city'],
+                state=data['shipping']['state'],
+                zipcode=data['shipping']['zipcode'],
+            )
     return JsonResponse('Payment complete!', safe=False)

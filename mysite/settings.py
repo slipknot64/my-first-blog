@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     #providers
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
+    
+    #currency
+    'djmoney',
 ]
 
 SITE_ID = 1

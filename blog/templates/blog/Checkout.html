@@ -143,7 +143,11 @@
 			.then((data) => {
 				console.log('Success:', data);
 				alert('Transaction completed');
-				window.location.href = "{% url 'home' %}"
+
+			 cart = {}
+            document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
+				
+			   window.location.href = "{% url 'home' %}"
 			})
 	}
 </script>
