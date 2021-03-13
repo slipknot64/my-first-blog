@@ -27,6 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'groovydigital.herokuapp.com']
 
+AUTH_USER_MODELS = 'blog.Account'
 
 # Application definition
 
@@ -51,6 +52,15 @@ INSTALLED_APPS = [
     
     #currency
     'djmoney',
+    
+    #svg
+    'svg',
+    
+    #filter
+    'django_filters',
+
+    #
+    'jquery'
 ]
 
 SITE_ID = 1
@@ -135,9 +145,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+SVG_DIRS = os.path.join(BASE_DIR, 'static/svg')
+
  
 MEDIA_URL = '/GameImgs/'
-MEDIA_ROOT =  os.path.join(BASE_DIR, 'static/GameImgs')
+MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'

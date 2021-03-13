@@ -5,6 +5,7 @@ from .views import (HomeView, ItemDetailView,)
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
+from blog.views import (register,)
 
 
 urlpatterns = [
@@ -14,7 +15,7 @@ urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('update_item/', views.updateItem, name='update_items'),
     path('process_order/', views.processOrder, name='process_order'),
-    path('Xbox', views.Xbox, name='Xbox'),
+    path('xboxseries', views.xboxseries, name='xboxseries'),
     path('playstation5', views.playstation5, name='playstation5'),
     path('PlayStation', views.PlayStation, name='PlayStation'),
     path('Microsoft', views.Microsoft, name='Microsoft'),

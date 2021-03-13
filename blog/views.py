@@ -9,6 +9,7 @@ from django.views.generic import ListView, DetailView
 from django.utils import timezone
 from django.core.mail import send_mail
 from django.http import JsonResponse
+from django.core import serializers
 import json
 import datetime
 from .utils import cookieCart, cartData, guestOrder
@@ -40,6 +41,19 @@ def register(request):
 
 def Terms(request):
     return render(request, 'blog/Terms & Privacy.html')
+    
+#def search_term(request):
+#    if request.method == 'POST':
+#        search_str = json.loads(request.body).get('search_data')
+#        product = Product.objects.filter(
+#            amount__starts_with=search_str, owner=request.user) | Product.objects.filter(
+#            title__starts_with=search_str, owner=request.user) | Product.objects.filter(
+#            category__starts_with=search_str, owner=request.user) | Product.objects.filter(
+#            description__starts_with=search_str, owner=request.user) | Product.objects.filter(
+#            digital__starts_with=search_str, owner=request.user)
+#        data = product.values()
+#        return JsonResponse(list(data), safe=False)
+
 
 
 class HomeView(ListView):
@@ -47,7 +61,7 @@ class HomeView(ListView):
     template_name = "blog/Homepage.html"
 
 class ItemDetailView(DetailView):
-    model = Product
+    model = Product   
     template_name = "blog/main.html"
 
 #def home(request):
@@ -76,14 +90,14 @@ def Checkout(request):
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/Checkout.html', context)
 
-def Xbox(request):
+def xboxseries(request):
     data = cartData(request)
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/Xbox.html', context)
+    return render(request, 'blog/xboxseries.html', context)
 
 def playstation5(request):
     data = cartData(request)
