@@ -8,11 +8,11 @@ for(var i = 0; i < updateBtns.length; i++){
         console.log('productId', productId, 'action:', action)
 
         console.log('USER:', user)
-        if(user === 'AnonymousUser'){
+        if(user == 'AnonymousUser'){
             addCookieItem(productId, action)
         }else{
             updateUserOrder(productId, action)
-        } 
+        }
     })
 }
 
@@ -25,8 +25,8 @@ function addCookieItem(productId, action){
                 cart[productId] = {'quantity':1}
       }else{
           cart[productId]['quantity'] += 1
-  }
-  }
+       }
+    }
      if (action == 'remove'){
            cart[productId]['quantity'] -= 1
              if (cart[productId]['quantity'] <= 0){
@@ -36,19 +36,19 @@ function addCookieItem(productId, action){
              }
        console.log('Cart:', cart)
        document.cookie ='cart=' + JSON.stringify(cart) + ";domain=;path=/"
-        location.reload()
+       location.reload()
 }
 
 
 function updateUserOrder(productId, action){
     console.log('User is logged in, sending data..')
-    
+
     var url = '/update_item/'
 
     fetch(url, {
         method:'POST',
         headers:{
-            'Content-Type':'application/json', 
+            'Content-Type':'application/json',
             'X-CSRFToken':csrftoken,
         },
         body:JSON.stringify({'productId': productId, 'action':action})
