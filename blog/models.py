@@ -15,7 +15,7 @@ CATEGORY_CHOICES = (
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     email = models.CharField(max_length=200, null=True)
-    username = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, null=True)
     password = models.CharField(max_length=200)
     Repeatpassword = models.CharField(max_length=200, default = '')
     created_date = models.DateTimeField(default=timezone.now)
@@ -25,7 +25,7 @@ class Customer(models.Model):
         self.save()
 
     def __str__(self):
-        return self.username
+        return self.name
 
 class Product(models.Model):
     category = models.CharField(choices=CATEGORY_CHOICES, max_length=3)

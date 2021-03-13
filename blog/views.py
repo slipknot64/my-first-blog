@@ -182,12 +182,12 @@ def login_request(request):
         if form.is_valid():
             user = form.save(commit=False)
             #check = Customer.objects.get(email = user.email)
-            check = Customer.objects.get(username = user.username)
+            check = Customer.objects.get(name = user.name)
             if check.password == user.password:
-                user = authenticate(username=user.username, password=user.password)
+                user = authenticate(name=user.name, password=user.password)
             if user is not None:
                 login(request, user)
-                messages.info(request, f"You are now logged in as {user.username}")
+                messages.info(request, f"You are now logged in as {user.name}")
                 return redirect('home')
             else:
                 messages.error(request, "Invalid username or password.")
@@ -264,6 +264,7 @@ def updateItem(request):
 
     if orderItem.quantity <= 0:
         orderItem.delete()
+    
     return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
@@ -281,7 +282,7 @@ def processOrder(request):
     total = float(data['form']['total'])
     order.transaction_id = transaction_id
 
-    if total == order.get_cart_total:
+    if total == float(order.get_cart_total):
         order.complete = True
     order.save()
 

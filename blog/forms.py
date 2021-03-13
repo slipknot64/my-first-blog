@@ -7,14 +7,14 @@ class UserAccountForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ('email', 'username', 'password', 'Repeatpassword')
+        fields = ('email', 'name', 'password', 'Repeatpassword')
 
 
 class AccountCheckForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ('email', 'username', 'password')
+        fields = ('email', 'name', 'password')
         
 class AuthenticationForm(forms.ModelForm):
     email = forms.EmailField(required=True)
