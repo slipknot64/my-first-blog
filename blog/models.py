@@ -128,3 +128,46 @@ class ShippingAddress(models.Model):
 
     def __str__(self):
         return self.address
+
+class favorites(models.Model):
+    favourite = models.ManyToManyField(Product, related_name='favorite', blank=True)
+    category = models.CharField(choices=CATEGORY_CHOICES, max_length=3, null=True)
+    title = models.CharField(max_length=200, null=True)
+    price = models.DecimalField(max_digits=7, decimal_places=2, null=True)
+    digital = models.BooleanField(default=False, null=True, blank=False)
+    description = models.TextField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    stock = models.IntegerField(default='0')
+    pre_order = models.IntegerField(default='0')
+    back_order = models.IntegerField(default='0')
+    slug = models.SlugField(default="")
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def publish(self):
+        self.save()
+
+    def __str__(self):
+        return self.title
+    
+    @property
+    def imageURL(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url    
+
+    def get_absolute_url(self):
+        return reverse("item", kwargs={
+             'slug': self.slug
+        })
+
+    def get_add_to_favorite_url(self):
+        return reverse("add_to_favorites", kwargs={
+            'slug': self.slug
+        })
+
+    def get_remove_from_favoite_url(self):
+        return reverse("remove_from_favorites", kwargs={
+            'slug': self.slug
+        })

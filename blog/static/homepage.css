@@ -1922,7 +1922,7 @@ img{height:auto!important;max-width:100%!important}
 .headline-lines:after{height:1px;position:absolute;width:100%;background-color:#F2F2F2;top:58%;z-index:0}
 .box-arrow:hover .box-arrow-text.bg-gray{background-color:#d9d9d9;background-size:32px 100%}
 .emptybox,.trustinfo_banner{background-color:#F2F2F2}
-.box-arrow-text{background-image:url(../images/arrow_white.png);background-repeat:no-repeat;background-size:22px 100%;background-position:left top;padding:30px 62px;min-height:100px;-webkit-transition:.2s ease-in-out;-moz-transition:.2s ease-in-out;-ms-transition:.2s ease-in-out;-o-transition:.2s ease-in-out}
+.box-arrow-text{background-image:url(Img/arrow_white.png);background-repeat:no-repeat;background-size:22px 100%;background-position:left top;padding:30px 62px;min-height:100px;-webkit-transition:.2s ease-in-out;-moz-transition:.2s ease-in-out;-ms-transition:.2s ease-in-out;-o-transition:.2s ease-in-out}
 .emptybox{margin-top:20px;margin-bottom:20px;padding:30px}
 .table_area{display:table;width:100%;table-layout:auto}
 .table_area .table_row{display:table-row}
@@ -2069,7 +2069,7 @@ header .shopping_bag .basket_amount_badge{display:none}
 .currency_switch:hover .list_currency_switch ul,.currency_switch:hover .list_language_switch ul,.language_switch_button:hover .list_currency_switch ul,.language_switch_button:hover .list_language_switch ul{display:block!important;padding:5px 16px;box-shadow:0 3px 6px rgba(0,0,0,.16);background-color:#F2F2F2}
 .currency_switch:hover .list_currency_switch ul a,.currency_switch:hover .list_language_switch ul a,.language_switch_button:hover .list_currency_switch ul a,.language_switch_button:hover .list_language_switch ul a{text-align:right;display:block}
 #shop_by_category{display:flex;position:relative;align-items:center}
-#shop_by_category .shop_by{padding-left:10px;padding-right:10px;border:1px solid #D7D7D7;border-right:0;height:100%;color:#CD0000;font-size:14px;line-height:36px}
+#shop_by_category .shop_by{padding-left:10px;padding-right:10px;border:1px solid #D7D7D7;border-right:0;height:100%;color:#eee747;font-size:14px;line-height:36px}
 #shop_by_category .shop_by strong{font-size:16px;font-weight:700}
 #shop_by_category.hoverintent ul{padding:5px 0}
 #shop_by_category.hoverintent ul>li a{padding-left:10px;padding-right:0;display:block;width:100%}

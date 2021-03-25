@@ -3,14 +3,13 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 <title>Groovy Digital</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css"/>
 <link rel="stylesheet" href="{% static 'owl.carousel.min.css' %}">
-<link rel="stylesheet" href="{% static 'owl.theme.default.min.css' %}">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -293,7 +292,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </a>
         </div>
                 <div class="user_account_block favorites_link">
-            <a href="/en/favorites/">
+            <a href="{% url 'favorites' %}">
                                 <span class="fa fa-heart-o"></span>
                                 <div class="text_wrapper">
                     <span class="description">Favorites</span>
@@ -398,16 +397,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </script>
     <div id="spons_banners">
         <div class="component sponsored_banners_ho">
-<div class="textcontent noBackground" >
+<div class="textcontent noBackground">
 <script type="text/javascript">
-	var campaignLink = "";
-	var campaignText = "";
-	var videoMobile  = 495323971;
-	var videoDesktop = 495323971;
+	var campaignLink = "/en/search/?input_search=Monster%20Hunter%20Rise#utm_source=Website&utm_campaign=Monster%20Hunter%20Rise%20Edition%20HP%20Video";
+	var campaignText = "PREORDER";
+	var videoMobile  = 528835079;
+	var videoDesktop = 528835079;
 </script>
 <div class="main-video-wrapper">
-<div id="video-wrapper">&nbsp;</div>
-<i class="fa fa-volume-up fa-2x video-volume-button" data-vimeo="unmute"></i> <i class="fa fa-volume-off fa-2x video-volume-button hidden" data-vimeo="mute"></i></div>
+<div id="video-wrapper"><div class="fitVids-wrapper"><iframe id="video" src="//player.vimeo.com/video/521373482?autoplay=1&amp;loop=1&amp;muted=1&amp;background=1&amp;player_id=video-player-2&amp;api=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" data-ready="true"></iframe></div></div>
+<a class="campaign-link button button_primary video-button" href="/en/search/?input_search=Monster%20Hunter%20Rise#utm_source=Website&amp;utm_campaign=Monster%20Hunter%20Rise%20Edition%20HP%20Video" id="campaign-link-2">BUY NOW</a> <i class="fa fa-volume-up fa-2x video-volume-button" data-vimeo="unmute"></i> <i class="fa fa-volume-off fa-2x video-volume-button hidden" data-vimeo="mute"></i></div>
 <style type="text/css">i.fa {
 		display: inline-block;
 		border-radius: 60px;
@@ -451,7 +450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	.fitVids-wrapper {
 		position: relative;
-		padding-bottom: 50%;
+		padding-bottom: 41.7%;
 		height: 0;
 		background-color: black;
 	}
@@ -476,7 +475,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	// mobile version
 	if(screen.width < 768) {
 		$('#video-wrapper').html('<iframe id="video" src="//player.vimeo.com/video/' + videoMobile + '?autoplay=1&loop=1&muted=1&background=1&player_id=video-player-2&api=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>');
-	}
+	} 
 
 	// desktop version
 	else {
@@ -506,7 +505,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 				fitVid.removeAttribute("height");
 				fitVid.removeAttribute("width");
-
+				
 				if(screen.width < 768)
 					$('.fitVids-wrapper').addClass('fitVids-wrapper-mobile');
 			}
@@ -527,85 +526,106 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </script><!-- PAYMENT OPTIONS -->
 <div class="trustinfo_banner">
 <div class="container">
-<div class="component owl-carousel owl-loaded owl-drag">
+<div class="glide">
+<div class="glide__track" data-glide-el="track">
 <div class="owl-stage-outer">
-<div class="owl-stage" style="transform: translate3d(-3711px, 0px, 0px); transition: all 0.25s ease 0s; width: 6567px;">
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/zip-pay/"><img alt="" src="static/Imgs/zip-pay-logo.png" style="width: 246px; height: 60px;" /></a></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/klarna/"><img alt="" src="static/Imgs/klarna.jpg" style="width: 453px; height: 101px;" /></a></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
+<div class="owl-stage" style="transform: translate3d(-3283px, 0px, 0px); transition: all 0.25s ease 0s; width: 5139px;"><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/zip-pay/"><img alt="" src="static/Imgs/Icons/zip-pay-logo.png" style="width: 246px; height: 60px;"></a></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/klarna/"><img alt="" src="static/Imgs/klarna.jpg" style="width: 453px; height: 101px;"></a></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
 <div class="textcontent noBackground"><!-- TrustBox script --><script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async=""></script><!-- End TrustBox script --><!-- TrustBox widget - Product Mini MultiSource -->
-<div class="trustpilot-widget" data-businessunit-id="47d3f2460000640005021fea" data-locale="en-GB" data-style-height="24px" data-style-width="100%" data-template-id="5418052cfbfb950d88702476" data-theme="light" style="position: relative;"><iframe frameborder="0" loading="auto" scrolling="no" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/index.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: relative; height: 24px; width: 100%; border-style: none; display: block; overflow: hidden;" title="Customer reviews powered by Trustpilot"></iframe><iframe frameborder="0" loading="auto" scrolling="no" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/popup.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: absolute; z-index: 99; top: 25px; height: 400px; width: 100%; border-style: none; display: none; overflow: hidden;" title="Customer reviews powered by Trustpilot"></iframe></div>
+<div class="trustpilot-widget" data-businessunit-id="47d3f2460000640005021fea" data-locale="en-GB" data-style-height="24px" data-style-width="100%" data-template-id="5418052cfbfb950d88702476" data-theme="light" style="position: relative;"><iframe frameborder="0" scrolling="no" title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/index.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: relative; height: 24px; width: 100%; border-style: none; display: block; overflow: hidden;"></iframe><iframe frameborder="0" scrolling="no" title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/popup.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: absolute; z-index: 99; top: 25px; height: 400px; width: 100%; border-style: none; display: none; overflow: hidden;"></iframe></div>
+<!-- End TrustBox widget --></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/apple-pay-v2.png" style="width: 186px; height: 60px;"></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/google-pay-logo-v2.png" style="width: 186px; height: 60px;"></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/visa.png" style="width: 185px; height: 60px;"></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/mastercard.png" style="width: 77px; height: 60px;"></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/paypal-credit/"><img alt="" src="static/Imgs/paypal.png" style="width: 246px; height: 60px;"></a></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/zip-pay/"><img alt="" src="static/Imgs/zip-pay-logo.png" style="width: 246px; height: 60px;"></a></div>
+</div>
+
+
+
+
+
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/apple-pay-v2.png" style="width: 186px; height: 60px;"></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/google-pay-logo-v2.png" style="width: 186px; height: 60px;"></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/visa.png" style="width: 185px; height: 60px;"></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/mastercard.png" style="width: 77px; height: 60px;"></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/paypal-credit/"><img alt="" src="static/Imgs/paypal.png" style="width: 246px; height: 60px;"></a></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/openpay/"><img alt="" src="static/Imgs/openpay-logo-v4.png" style="width: 453px; height: 101px;"></a></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/zip-pay/"><img alt="" src="static/Imgs/zip-pay-logo.png" style="width: 246px; height: 60px;"></a></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/klarna/"><img alt="" src="static/Imgs/klarna.jpg" style="width: 453px; height: 101px;"></a></div>
+</div>
+
+<div class="owl-item" style="width: 142.75px;">
+<div class="textcontent noBackground"><!-- TrustBox script --><script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async=""></script><!-- End TrustBox script --><!-- TrustBox widget - Product Mini MultiSource -->
+<div class="trustpilot-widget" data-businessunit-id="47d3f2460000640005021fea" data-locale="en-GB" data-style-height="24px" data-style-width="100%" data-template-id="5418052cfbfb950d88702476" data-theme="light" style="position: relative;"><iframe frameborder="0" scrolling="no" title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/index.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: relative; height: 24px; width: 100%; border-style: none; display: block; overflow: hidden;"></iframe><iframe frameborder="0" scrolling="no" title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/popup.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: absolute; z-index: 99; top: 25px; height: 400px; width: 100%; border-style: none; display: none; overflow: hidden;"></iframe></div>
 <!-- End TrustBox widget --></div>
 </div>
 
-<div class="owl-item" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/apple-pay-v2.png" style="width: 186px; height: 60px;" /></div>
-</div>
 
-<div class="owl-item" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/google-pay-logo-v2.png" style="width: 186px; height: 60px;" /></div>
-</div>
 
-<div class="owl-item" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/visa.png" style="width: 185px; height: 60px;" /></div>
-</div>
 
-<div class="owl-item" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/mastercard.png" style="width: 77px; height: 60px;" /></div>
-</div>
 
-<div class="owl-item" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/paypal-credit/"><img alt="" src="static/Imgs/paypal.png" style="width: 246px; height: 60px;" /></a></div>
-</div>
 
-<div class="owl-item" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/openpay/"><img alt="" src="static/Imgs/openpay-logo-v4.png" style="width: 453px; height: 101px;" /></a></div>
-</div>
 
-<div class="owl-item" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/zip-pay/"><img alt="" src="static/Imgs/zip-pay-logo.png" style="width: 246px; height: 60px;" /></a></div>
-</div>
 
-<div class="owl-item active" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/klarna/"><img alt="" src="static/Imgs/klarna.jpg" style="width: 453px; height: 101px;" /></a></div>
-</div>
 
-<div class="owl-item active" style="width: 285.5px;">
+
+
+
+<div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/zip-pay/"><img alt="" src="static/Imgs/zip-pay-logo.png" style="width: 246px; height: 60px;"></a></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/klarna/"><img alt="" src="static/Imgs/klarna.jpg" style="width: 453px; height: 101px;"></a></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
 <div class="textcontent noBackground"><!-- TrustBox script --><script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async=""></script><!-- End TrustBox script --><!-- TrustBox widget - Product Mini MultiSource -->
-<div class="trustpilot-widget" data-businessunit-id="47d3f2460000640005021fea" data-locale="en-GB" data-style-height="24px" data-style-width="100%" data-template-id="5418052cfbfb950d88702476" data-theme="light" style="position: relative;"><iframe frameborder="0" loading="auto" scrolling="no" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/index.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: relative; height: 24px; width: 100%; border-style: none; display: block; overflow: hidden;" title="Customer reviews powered by Trustpilot"></iframe><iframe frameborder="0" loading="auto" scrolling="no" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/popup.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: absolute; z-index: 99; top: 25px; height: 400px; width: 100%; border-style: none; display: none; overflow: hidden;" title="Customer reviews powered by Trustpilot"></iframe></div>
+<div class="trustpilot-widget" data-businessunit-id="47d3f2460000640005021fea" data-locale="en-GB" data-style-height="24px" data-style-width="100%" data-template-id="5418052cfbfb950d88702476" data-theme="light" style="position: relative;"><iframe frameborder="0" scrolling="no" title="Customer reviews powered by Trustpilot" loading="auto" src="https://widget.trustpilot.com/trustboxes/5418052cfbfb950d88702476/index.html?businessunitId=47d3f2460000640005021fea&amp;templateId=5418052cfbfb950d88702476#locale=en-GB&amp;styleHeight=24px&amp;styleWidth=100%25&amp;theme=light" style="position: relative; height: 24px; width: 100%; border-style: none; display: block; overflow: hidden;"></iframe></div>
 <!-- End TrustBox widget --></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/apple-pay-v2.png" style="width: 186px; height: 60px;" /></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/google-pay-logo-v2.png" style="width: 186px; height: 60px;" /></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/visa.png" style="width: 185px; height: 60px;" /></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><img alt="" src="static/Imgs/mastercard.png" style="width: 77px; height: 60px;" /></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/paypal-credit/"><img alt="" src="static/Imgs/paypal.png" style="width: 246px; height: 60px;" /></a></div>
-</div>
-
-<div class="owl-item cloned" style="width: 285.5px;">
-<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/zip-pay/"><img alt="" src="static/Imgs/zip-pay-logo.png" style="width: 246px; height: 60px;" /></a></div>
-</div>
-</div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/apple-pay-v2.png" style="width: 186px; height: 60px;"></div>
+</div><div class="owl-item cloned" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/google-pay-logo-v2.png" style="width: 186px; height: 60px;"></div>
+</div><div class="owl-item cloned active" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/visa.png" style="width: 185px; height: 60px;"></div>
+</div><div class="owl-item cloned active" style="width: 142.75px;">
+<div class="textcontent noBackground"><img alt="" src="static/Imgs/mastercard.png" style="width: 77px; height: 60px;"></div>
+</div><div class="owl-item cloned active" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/paypal-credit/"><img alt="" src="static/Imgs/paypal.png" style="width: 246px; height: 60px;"></a></div>
+</div><div class="owl-item cloned active" style="width: 142.75px;">
+<div class="textcontent noBackground"><a href="https://www.shopto.net/en/Help/openpay/"><img alt="" src="static/Imgs/openpay-logo-v4.png" style="width: 453px; height: 101px;"></a></div>
+</div></div>
 </div>
 
 <div class="owl-nav"><button class="owl-prev disabled" role="presentation" type="button"><i class="fa fa-angle-left"></i></button><button class="owl-next" role="presentation" type="button"><i class="fa fa-angle-right"></i></button></div>
@@ -615,11 +635,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="owl-nav"><button class="owl-prev" role="presentation" type="button"><i class="fa fa-angle-left"></i></button><button class="owl-next" role="presentation" type="button"><i class="fa fa-angle-right"></i></button></div>
 
 <div class="owl-dots"><button class="owl-dot" role="button"><span></span></button><button class="owl-dot active" role="button"><span></span></button><button class="owl-dot" role="button"><span></span></button></div>
-</div>
+<div class="owl-nav"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fa fa-angle-right"></i></button></div><div class="owl-dots"><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot"><span></span></button><button role="button" class="owl-dot active"><span></span></button><button role="button" class="owl-dot"><span></span></button></div></div>
 </div>
 </div>
 
-</div>
+<!--</div>
     <script type="text/javascript">
 
         var currRnd = Math.floor(Math.random() * 100000) + 1;;
@@ -636,7 +656,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             alreadySent.push(id);
             $.ajax({
-                url: "/module/dcshop/b2c/ajax_cart.php",
+                url: "/module/dcshop/b2c/ajax_sb_inc_impression.php",
                 type: 'POST',
                 data: jsonData,
                 dataType: 'json'
@@ -665,7 +685,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             var activeItem = owl.find('.owl-item.active .owl-carousel-item');
             addImpression(activeItem.data('sbid'));
         });
-    </script>
+    </script>-->
     <style>
         .slideshow_box .owl-carousel-item.animated {
             -webkit-animation-duration : 0.01s  ;
@@ -673,10 +693,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             height: 250px;
         }
     </style>
-<div class="slideshow_box"><div id="a11" class="owl-carousel"></div></div>
+<div class="slideshow_box"><div id="a11" class="owl-carousel owl-loaded owl-drag"><div class="owl-stage-outer"><div class="owl-stage"></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next"></button></div><div class="owl-dots disabled"></div></div></div>
 </div>    </div>
-
-<body style="background: url('{% static '/Imgs/HP-Site-Background-JAN21-v6.jpg' %}') no-repeat fixed; background-size: cover;">
+<div id="content">
+    <div id="background">
+<div class="textcontent hasBackground"  style="background-image: url('{% static "Imgs/HP-Site-Background-JAN21-v6.jpg" %}');"> 
+</div>
+</div>
 
                 <div id="breadcrumb">
                             <div class="container-fluid">
@@ -1323,7 +1346,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 </div>
-</div></div></div></div></div></div><div class="group col-xs-12"><div class='row'><div class='noBackground'>
+</div></div></div></div></div></div><!--<div class="group col-xs-12"><div class='row'><div class='noBackground'>
 <div class="col-xs-12 headline_centered marginBottom">
 <div class="textcontent noBackground" >
 Top Sellers
@@ -1343,7 +1366,7 @@ Top Sellers
 
                     </div>
                  </div>
-                  <span class="favorite-button" onclick='window.location.href="?action=shop_add_item_to_favorites&action_id=511305"' title='Favorites'><i class="fa fa-heart-o" aria-hidden="true"></i></span>            </div>
+                  <span class="favorite-button" data-product={{product.id}} data-action="add" title='Favorites'><i class="fa fa-heart-o" aria-hidden="true"></i></span>            </div>
             <div class="itemlist__info">
                  <div class="itemlist__descriptionWrapper">
                      <span class='item_brand_name'></span>                     <div class="itemlist__description">
@@ -1384,7 +1407,7 @@ Top Sellers
         </a>
     </div>
     {% endfor %}
-   <!-- <div class="itemlist11 itemlist col-xs-6 col-sm-4 col-xlg-3">
+    <div class="itemlist11 itemlist col-xs-6 col-sm-4 col-xlg-3">
         <a href="/en/ps4as58-assassins-creed-valhalla-p195131/" class="itemlist__container bgcontain" >
             <div class="itemlist__imageWrapper">
                 <div class="promotionbanners sfw43qtef">
@@ -2124,33 +2147,21 @@ RG12 1WA<br />
             </div>
         </div>
     </div>
-    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"1fbc62c35c","applicationID":"251706473","transactionName":"NFwANxdXCBEDAUBQXg0WNxEMGQIBTQRGVl8XXAwHSlAUDQwWUVdVTUkKEw==","queueTime":0,"applicationTime":4157,"atts":"GBsDQV9NGx8=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script></body>
+    <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam-cell.nr-data.net","licenseKey":"1fbc62c35c","applicationID":"251706473","transactionName":"NFwANxdXCBEDAUBQXg0WNxEMGQIBTQRGVl8XXAwHSlAUDQwWUVdVTUkKEw==","queueTime":0,"applicationTime":4157,"atts":"GBsDQV9NGx8=","errorBeacon":"bam-cell.nr-data.net","agent":""}</script>
 <script type="text/javascript">
 
     $('.itemlist_order_button_link').click(function (e) {
         e.preventDefault();
 
     });
-</script>
-<script>
-var owl = $('.owl-carousel');
-owl.owlCarousel({
-    autoplay: true,
-    autoplayTimeout: 5000,
-    autoplayHoverPause: true,
-    loop: true,
-    items: 1,
-    responsiveClass: true,
-    animateOut: 'fadeOut',
-    nav: true,
-    navText: ['&#xf104;', '&#xf105;']
-});
-</script> <!--(makes carousel work but still buggy needs adjusting)-->
+</script></body>
 <link rel="stylesheet" href="{% static 'homepage.css' %}">
+<link rel="stylesheet" href="{% static 'glide.core.min.css' %}">
 <link rel="stylesheet" href="{% static 'fontawesome-webfont.ttf' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 <link rel="stylesheet" href="{% static 'fontawesome-webfont.woff' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 <link rel="stylesheet" href="{% static 'fontawesome-webfont.woff2' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
 <script src="{% static 'js/bootstrap-slider.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
 <script src="{% static 'js/layout.js' %}"></script>
 <script src="{% static 'js/magicthumb.js' %}"></script>
 <script src="{% static 'js/magiczoom.js' %}"></script>
@@ -2161,4 +2172,5 @@ owl.owlCarousel({
 <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
 <script src="{% static 'js/aos.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/favorites.js' %}"></script>
 </html>

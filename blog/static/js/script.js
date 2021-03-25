@@ -306,7 +306,7 @@ $(document).ready(function () {
     });
 
 
-    //MAB setze Span in ï¿½berschrift um Linien zu erzeugen
+    //MAB setze Span in �berschrift um Linien zu erzeugen
     $('.headline-lines').each(function () {
         var arr = ["h1", "h2", "h3", "h4", "h5", "h6"];
         var thisHeadline = $(this);
