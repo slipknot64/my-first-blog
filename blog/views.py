@@ -21,8 +21,11 @@ def register(request):
             #send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigitalplc.co.uk', ['to@example.com'], fail_silently=False)
             user = form.save(commit=False)
             user.is_active = False
-            user.save()
-            return redirect('login')
+            if user.password == user.Repeatpassword:
+                user.save()
+                return redirect('login')
+            else:
+                return render(request, 'blog/bootstrap.html', {'form' : form})
     else:
         form = UserAccountForm()
     return render(request, 'blog/bootstrap.html', {'form' : form})
@@ -41,7 +44,7 @@ def register(request):
 
 def Terms(request):
     return render(request, 'blog/Terms & Privacy.html')
-    
+
 #def search_term(request):
 #    if request.method == 'POST':
 #        search_str = json.loads(request.body).get('search_data')
@@ -61,7 +64,7 @@ class HomeView(ListView):
     template_name = "blog/Homepage.html"
 
 class ItemDetailView(DetailView):
-    model = Product   
+    model = Product
     template_name = "blog/main.html"
 
 #def home(request):
@@ -75,7 +78,7 @@ def favorites(request):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
-    
+
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/favorites.html', context)
 
@@ -103,7 +106,7 @@ def favoriteItems(request):
 
     if orderItem.quantity <= 0:
         orderItem.delete()
-    
+
     return JsonResponse('Item was added', safe=False)
 
 def Cart(request):
@@ -113,11 +116,11 @@ def Cart(request):
     order = data['order']
     items = data['items']
 
-    context = {'items':items, 'order':order, 'cartItems':cartItems}    
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/Cart.html', context)
 
 def Checkout(request):
-    
+
     data = cartData(request)
     cartItems = data['cartItems']
     order = data['order']
@@ -149,7 +152,7 @@ def PlayStation(request):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
-    
+
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/PlayStation.html', context)
 
@@ -167,7 +170,7 @@ def Nintendo(request):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
-    
+
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/Nintendo.html', context)
 
@@ -176,7 +179,7 @@ def TV(request):
     cartItems = data['cartItems']
     order = data['order']
     items = data['items']
-    
+
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/TV Electronics.html', context)
 
@@ -300,7 +303,7 @@ def updateItem(request):
 
     if orderItem.quantity <= 0:
         orderItem.delete()
-    
+
     return JsonResponse('Item was added', safe=False)
 
 def processOrder(request):
@@ -311,7 +314,7 @@ def processOrder(request):
         customer = request.user.customer
         order, created = Order.objects.get_or_create(customer=customer, complete=False)
 
-    
+
     else:
         customer, order = guestOrder(request, data)
 
