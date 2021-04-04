@@ -30,8 +30,6 @@ urlpatterns = [
     path('account', views.account, name='account'),
     path("logout", include('django.contrib.auth.urls')),
     path("social_login/", include('django.contrib.auth.urls')),
-    #path('add_to_cart/<slug>/', views.add_to_cart, name='add_to_cart'),
-    #path('remove_from_cart/<slug>/', views.remove_from_cart, name='remove_from_cart'),
     path('Cart', views.Cart, name='Cart'),
     path('Checkout', views.Checkout, name='Checkout'),
 ]

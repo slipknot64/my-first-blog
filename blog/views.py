@@ -194,7 +194,7 @@ def Smartphones(request):
 
 def product_list(request):
     products = Product.objects.all()
-    return render(request, 'blog/product.html', {'products' : products})
+    return render(request, 'blog/product_list.html', {'products' : products})
 
 #def product_detail(request, pk):
 #    product = get_object_or_404(Product, pk=pk)
@@ -233,51 +233,6 @@ def login_request(request):
                 form = AccountCheckForm()
             return render(request = request, template_name = "blog/login.html",context={"form":form})
 
-#def add_to_cart(request, slug):
-#    item = get_object_or_404(Product, slug=slug)
-#    order_item, created = OrderItem.objects.get_or_create(
-#         product=item,
-#         user=request.user,
-#         ordered=False
-#    )
-#    order_qs = Order.objects.filter(user=request.user, ordered=False)
-#    if order_qs.exists():
-#        order = order_qs[0]
-        #check if the order time is in the ordered
-#        if order.items.filter(product__slug=item.slug).exists():
-#            order_item.quantity += 1
-#            order_item.save()
-#            return redirect("item", slug=slug)
-#        else:
-#            order.items.add(order_item)
-#            return redirect("item", slug=slug)
-#    else:
-#        ordered_date = timezone.now()
-#        order = Order.objects.create(
-#                    user=request.user, ordered_date=ordered_date)
-#        order.items.add(order_item)
-#        return redirect("item", slug=slug)
-
-
-#def remove_from_cart(request, slug):
-#    item = get_object_or_404(Product, slug=slug)
-#    order_qs = Order.objects.filter(user=request.user, ordered=False)
-#    if order_qs.exists():
-#        order = order_qs[0]
-        #check if the order itme is in the ordered
-#        if order.items.filter(product__slug=item.slug).exists():
-#            order_item = OrderItem.objects.filter(
-#                 product=item,
-#                 user=request.user,
-#                 ordered=False
-#            ) [0]
-#            order.items.remove(order_item)
-#            return redirect("item", slug=slug)
-#        else:
-#            return redirect("item", slug=slug)
-
-#    else:
-#        return redirect("item", slug=slug)
 
 def updateItem(request):
     data = json.loads(request.body)

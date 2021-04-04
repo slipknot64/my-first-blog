@@ -695,7 +695,8 @@
                                 
                             });
                          </script>
-                            <!-- <div class="itemlist2 itemlist col-xs-6 col-sm-4 col-md-3 col-xlg-2">
+						 {% for product in products %}
+                             <div class="itemlist2 itemlist col-xs-6 col-sm-4 col-md-3 col-xlg-2">
         <a href="/en/xb1do10-doom-eternal-p66038/" class="itemlist__container">
             <div class="itemlist__imageWrapper">
                 <div class="promotionbanners">
@@ -707,13 +708,13 @@
             <div class="itemlist__info">
                 <div class="itemlist__descriptionWrapper">
                       <span class='item_brand_name'></span>                     <div class="itemlist__description">
-                        Doom Eternal                       </div>
+                        {{ product.title }}                       </div>
                 </div>
                  <div class="itemlist__orderInfo">
                      <div class="itemlist__inventory">
                           <div class="inventory low_availability checkmark">Low availability</div>                     </div>
                      <div class="itemlist__prices">
-                                                        <div class="cross_price">£49.99</div>
+                                                        <div class="cross_price">£{{ product.price }}</div>
                                                         <div class='base_price'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAAATBAMAAADfQ2bzAAAAG1BMVEX////MzMzl5eWZmZl/f39MTExmZmaysrIzMzNBODRMAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAASRJREFUKJGtks1Pg0AQxWeBFo74lXjspYZjtReOpMHIERNUjj0Y5IgxVo7WsuT92c4OW5qoMTFxDoSd+e17bxeI/q02KBoiF4lZtFp6bq2vyAHXsOSXnJxaGAfCOCWgZ2pkIjzWCzqDMJOB8fDwikThvqqEOTddH70w8cBMESqs/cHeMD0/FF5MQyG2Og0DLhaWaQ1Dz5J53okqs7sYMxclJ5c4QEf2XFk+MNQCt6xmkn9hfISWuQBWpKq0lEgq1kfHlol2tPfqS1Hw+FrGPMJksKITNK5MFd6F6b4zEe+rPw5MvR2Zk+Uy05f0Jo7l1jdea57NUaTpzfi9eOohCfC0QR70nLmx5zL6B2ZqbpgrDKzzD4y6C+m01Cvyr1GEv/wwf61PZg1uDPA7f74AAAAASUVORK5CYII='></div>
                                              </div>
                  </div>
@@ -748,7 +749,7 @@
                 </a>
     </div>
 </div></div>
-<div class='itembox_header row'></div></div>            </div> -->
+<div class='itembox_header row'></div></div>            </div>
             <div id="white_background">
                             </div>
         </div>
@@ -1046,6 +1047,7 @@ RG12 1WA<br />
 
     });
 </script>
+{% endfor %}
 <link rel="stylesheet" href="{% static 'Product.css' %}">
 <link rel="stylesheet" href="{% static 'magicscroll.css' %}">
 <link rel="stylesheet" href="{% static 'fontawesome-webfont.ttf' %}"><link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">

@@ -16,15 +16,17 @@
 </head>
 <div class="backgroundIMG">
 </div>
-<body>
-{% block content %}
 {{user}}
 <div class="login-form">
-    <div class="container">
-    <form method="POST">
-        {% csrf_token %}
-		{{form.as_p}}
-        <h2 class="text-center">Sign in</h2>
+<div class="container">
+{% load i18n %}
+
+{% block content %}
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <h2 class="text-center">Sign in</h2>
         <div class="text-center social-btn">
             <a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>
 
@@ -35,9 +37,12 @@
 		<div class="container">
            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Login</button>
         </form>
-        Don't have an account? <a href="{% url 'register' %}" target="blank"><strong>register here</strong></a>!
-    </div>
-	{% endblock %}
-</body>
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button class="signupbtn" type="submit">{% trans "Sign Up" %} &raquo;</button>
+</form>
 <link rel="stylesheet" href="{% static 'Social Login.css' %}">
+
+{% endblock %}
 </html>

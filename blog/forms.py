@@ -14,8 +14,8 @@ class AccountCheckForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ('email', 'name', 'password')
-        
+        fields = ('name', 'password')
+       
 class AuthenticationForm(forms.ModelForm):
     email = forms.EmailField(required=True)
     class Meta:
