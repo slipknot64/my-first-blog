@@ -20,7 +20,7 @@
 <script src="{% static 'js/owl.carousel.min.js' %}"></script>
 <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 <meta name="robots" content="index,follow" /><link rel='canonical' href='https://adilgangster.pythonanywhere.com' />    <title>BUY NOW and Pre-order video games, Consoles, Digital Download, PlayStation, Microsoft, Nintendo,  home entertainment, TVs, laptops, tablets. ✓Free UK Delivery | ShopTo.net</title>
-<meta name="Description" content="BUY NOW and Pre-order video games, home entertainment, TVs, laptops, tablets, cycling and sports technology. ✓Free UK Delivery ✓Finance available ►BUY NOW now!" />
+<meta name="Description" content="BUY NOW and Pre-order video games, home entertainment, TVs, laptops, tablets, cycling and sports technology. ✓Free UK Delivery ✓Finance available ►BUY NOW!" />
 <meta name="google-site-verification" content="M3nFyuNaY44GJKn1xsZvpvgB6tsWgY8Rg2dF2cWkzX8" />
 <meta name="msvalidate.01" content="EFFF662ED8483E5895F083B0FCEEB70F" />
 <!-- Google Tag Manager -->
@@ -233,7 +233,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             },
             onSelect: function (suggestion) {
                 var value = suggestion.value.replace("'", "");
-                location.href = "/en/search/?input_search=" + encodeURI( value);
+                location.href = "/products/?input_search=" + encodeURI( value);
             }
         });
         $('#input_search').keyup(function (e) {
@@ -253,7 +253,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             searchValue = searchValue.replace("'", "");
             searchValue = encodeURI(searchValue);
 
-            location.href = "/en/search/?input_search=" + searchValue;
+            location.href = "/products/?input_search=" + searchValue;
             return false;
         })
     })
@@ -360,7 +360,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 });
             },
             onSelect: function (suggestion) {
-                location.href = "/en/search/?input_search=" + suggestion.value;
+                location.href = "/products/?input_search=" + suggestion.value;
             }
         });
         $('#input_mobile_search').keyup(function (e) {
@@ -586,7 +586,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     
     <div class="owl-item cloned" style="width: 285.5px;">
-    <div class="textcontent noBackground"><img alt="" src=static/Imgs/google-pay-logo-v2.png" style="width: 186px; height: 60px;" /></div>
+    <div class="textcontent noBackground"><img alt="" src="static/Imgs/google-pay-logo-v2.png" style="width: 186px; height: 60px;" /></div>
     </div>
     
     <div class="owl-item cloned" style="width: 285.5px;">
@@ -675,11 +675,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="slideshow_box"><div id="a11" class="owl-carousel owl-loaded owl-drag"><div class="owl-stage-outer"><div class="owl-stage"></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"></button><button type="button" role="presentation" class="owl-next"></button></div><div class="owl-dots disabled"></div></div></div>
 </div>    </div>
 <div id="content">
-    <div id="background">
-<div class="textcontent hasBackground"  style="background-image: url('{% static "Imgs/HP-Site-Background-JAN21-v6.jpg" %}');"> 
+        <div id="background">
+<div class="textcontent hasBackground"  style='background-image: url("{% static "Imgs/HP-Site-Background-JAN21-v6.jpg" %}")'>
 </div>
 </div>
-
                 <div id="breadcrumb">
                             <div class="container-fluid">
                                                         </div>             </div>
@@ -768,7 +767,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class='collection_content availability_info'><div class="collection_content_inner"></div></div>                                    </div>
                                 </div>
                                 <div class="button button_primary">
-                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW NOW</div></div>                                </div>
+                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW</div></div>                                </div>
                             </div>
                         </div>
                     </div>
@@ -827,7 +826,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class='collection_content availability_info'><div class="collection_content_inner"></div></div>                                    </div>
                                 </div>
                                 <div class="button button_primary">
-                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW NOW</div></div>                                </div>
+                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW</div></div>                                </div>
                             </div>
                         </div>
                     </div>
@@ -858,7 +857,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class='collection_content availability_info'><div class="collection_content_inner"></div></div>                                    </div>
                                 </div>
                                 <div class="button button_primary">
-                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW NOW</div></div>                                </div>
+                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW</div></div>                                </div>
                             </div>
                         </div>
                     </div>
@@ -888,7 +887,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class='collection_content availability_info'><div class="collection_content_inner"></div></div>                                    </div>
                                 </div>
                                 <div class="button button_primary">
-                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW NOW</div></div>                                </div>
+                                    <div class='collection_content button_text'><div class="collection_content_inner">BUY NOW</div></div>                                </div>
                             </div>
                         </div>
                     </div>
