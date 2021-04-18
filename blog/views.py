@@ -1,4 +1,4 @@
-from .models import Product, OrderItem, Order, ShippingAddress, User, reverse, timezone, models, settings, Image, CATEGORY_CHOICES
+from .models import Product, OrderItem, Order, ShippingAddress, User, reverse, timezone, models, settings, Image, CATEGORY_CHOICES, Customer
 from .forms import AccountCheckForm
 from .forms import UserAccountForm
 from .forms import ProductForm
@@ -21,9 +21,23 @@ def register(request):
             #send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigitalplc.co.uk', ['to@example.com'], fail_silently=False)
             user = form.save(commit=False)
             user.is_active = False
-            if user.password == user.Repeatpassword:
-                user.save()
-                return redirect('login')
+            try:
+                check = Customer.objects.get(email = user.email)
+            except:
+                check = []
+            if not check:
+                try:
+                    check2 = Customer.objects.get(name = user.name)
+                except:
+                    check2 = []
+                if not check2:
+                    if user.password == user.Repeatpassword:
+                        user.save()
+                        return redirect('login')
+                    else:
+                        return render(request, 'blog/bootstrap.html', {'form' : form})
+                else:
+                    return render(request, 'blog/bootstrap.html', {'form' : form})
             else:
                 return render(request, 'blog/bootstrap.html', {'form' : form})
     else:
