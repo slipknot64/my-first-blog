@@ -221,7 +221,16 @@ def delivery(request):
 #    return render(request, 'blog/item.html')
 
 def account(request):
-    return render(request, 'blog/Account.html')
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    if request.user.is_authenticated:
+        return render(request, 'blog/Account.html', context)
+    else:
+        return render(request, 'blog/Social Login Form.html')
 
 def logout_request(request):
     logout(request)
