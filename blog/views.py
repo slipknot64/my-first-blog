@@ -4,6 +4,7 @@ from .forms import UserAccountForm
 from .forms import ProductForm
 from .forms import AuthenticationForm
 from .forms import RegistrationForm
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
@@ -17,7 +18,7 @@ import datetime
 from .utils import cookieCart, cartData, guestOrder
 # Create your views here.
 def register(request, *args, **kwargs):
-    user = user.request.user
+    user = request.user
     if user.is_authenticated:
         return HttpResponse(f"You are already authenticated as {user.email}.")
     context = {}
@@ -27,33 +28,17 @@ def register(request, *args, **kwargs):
             #send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigitalplc.co.uk', ['to@example.com'], fail_silently=False)
             person = form.save(commit=False)
             person.is_active = False
-            email = form.cleaned.data.get('email').lower()
+            email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
-            try:
-                check = Customer.objects.get(email = person.email)
-            except:
-                check = []
-            if not check:
-                try:
-                    check2 = Customer.objects.get(name = person.name)
-                except:
-                    check2 = []
-                if not check2:
-                    if person.password1 == person.password2:
-                        user.save()
-                        return redirect('login')
-                    else:
-                        return render(request, 'blog/bootstrap.html', {'form' : form})
-                else:
-                    return render(request, 'blog/bootstrap.html', {'form' : form})
-            else:
-                return render(request, 'blog/bootstrap.html', {'form' : form})
+            login(request, account)
+            destination = kwargs.get("next")
+            if destination:
+                return redirect(destination)
+            return redirect("social_login/login")
         else:
             context['registration_form'] = form
-    else:
-        form = UserAccountForm()
-    return render(request, 'blog/bootstrap.html', {'form' : form})
+    return render(request, 'blog/bootstrap.html', context)
 
 #def signin(request):
     #if request.method == "POST":

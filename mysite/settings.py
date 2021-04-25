@@ -75,7 +75,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'mysite.urls'
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
+    #'django.contrib.auth.backends.ModelBackend',
     'django.contrib.auth.backends.AllowAllUsersModelBackend',
     'blog.backends.CaseInsensitiveModeBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
