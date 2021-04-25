@@ -27,11 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'groovydigital.herokuapp.com']
 
-AUTH_USER_MODELS = 'blog.Account'
+AUTH_USER_MODEL = 'blog.Account'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'blog',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'blog.apps.BlogConfig',
 
     #allauth
     'allauth',
@@ -76,6 +76,8 @@ ROOT_URLCONF = 'mysite.urls'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.AllowAllUsersModelBackend',
+    'blog.backends.CaseInsensitiveModeBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
