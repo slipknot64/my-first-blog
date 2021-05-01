@@ -36,7 +36,7 @@ def register(request, *args, **kwargs):
             destination = kwargs.get("next")
             if destination:
                 return redirect(destination)
-            return redirect("social_login/login")
+            return redirect("home")
         else:
             context['registration_form'] = form
     return render(request, 'blog/bootstrap.html', context)
