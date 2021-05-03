@@ -19,6 +19,8 @@ from django.urls import path, include
 from mysite import settings
 from blog.views import(
     register,
+    login_request,
+    logout_request,
 )
 
 urlpatterns = [

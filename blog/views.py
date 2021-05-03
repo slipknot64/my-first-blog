@@ -68,8 +68,6 @@ def Terms(request):
 #        data = product.values()
 #        return JsonResponse(list(data), safe=False)
 
-
-
 class HomeView(ListView):
     model = Product
     template_name = "blog/Homepage.html"
@@ -253,6 +251,37 @@ def login_request(request):
                 form = AccountCheckForm()
             return render(request = request, template_name = "blog/login.html",context={"form":form})
 
+#def login_request(request, *args, **kwargs):
+
+#    context = {}
+
+#    user = request.user
+#    if user.is_authenticated:
+#        return redirect("home")
+
+#    if request.POST:
+#        form = AccountAuthenticationForm(request.POST)
+#        if form.is_valid():
+#            form.save()
+#            email = request.POST['email']
+#            password = request.POST['password']
+#            user = authenticate(email=email, password=password)
+#            if user:
+#                login(request, user)
+#                destination = get_redirect_if_exists(request)
+#                if destination:
+#                    return redirect(destination)
+#                return redirect("home")
+#        else:
+#            context['login_form'] = form
+#    return render(request, "blog/login.html", context)
+
+#def get_redirect_if_exists(request):
+#    redirect = None
+#    if request.GET:
+#        if request.GET.get("next"):
+#            redirect str(request.Get.get("next"))
+#    return redirect
 
 def updateItem(request):
     data = json.loads(request.body)
