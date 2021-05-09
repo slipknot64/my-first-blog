@@ -25,6 +25,7 @@
  </script>
 </head>
 <body>
+{% load i18n %}
 {% block content %}
 {{user}}
 <div class="login-form">
@@ -32,6 +33,8 @@
     <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
 		{{form.as_p}}
+        <p><label for="id_username">Email:</label> <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="60" required="" id="id_username"></p>
+        <p><label for="id_password">Password:</label> <input type="password" name="password" autocomplete="current-password" required="" id="id_password"></p>
         <h2 class="text-center">Sign in</h2>
         <div class="text-center social-btn">
             <a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-primary btn-block"><i class="fa fa-facebook"></i> Sign in with <b>Facebook</b></a>

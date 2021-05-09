@@ -23,7 +23,7 @@
 
 {% block content %}
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+<form class="signup" id="signup_form" method="post" action="{% url 'account_login' %}">
   {% csrf_token %}
   {{ form.as_p }}
   <h2 class="text-center">Sign in</h2>

@@ -249,7 +249,7 @@ def login_request(request):
             else:
                 messages.error(request, "Invalid username or password.")
                 form = AccountCheckForm()
-            return render(request = request, template_name = "blog/login.html",context={"form":form})
+            return render(request = request, template_name = "blog/Social Login Form.html",context={"form":form})
 
 #def login_request(request, *args, **kwargs):
 
