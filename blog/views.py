@@ -31,15 +31,6 @@ def register(request, *args, **kwargs):
             form.save()
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
-            email_subject = 'Activate your account'
-            email_body = 'Test Body'
-            send_mail(
-                    email_subject,
-                    email_body,
-                    'noreply@groovydigitalplc.co.uk',
-                    [email],
-                )
-            email.send(fail_silently=False)
             account = authenticate(email=email, password=raw_password)
             login(request, account)
             destination = kwargs.get("next")
