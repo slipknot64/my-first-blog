@@ -154,6 +154,8 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
+
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 
 EMAIL_HOST = 'smtp.sendgrid.net'
