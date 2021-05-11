@@ -154,12 +154,11 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
-
-SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+SENDGRID_API_KEY = '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'
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER =('apikey') # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
