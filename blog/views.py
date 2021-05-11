@@ -25,7 +25,7 @@ def register(request, *args, **kwargs):
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigital.co.uk', ['to@example.com'], fail_silently=False)
+            send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigital.co.uk', ['groovydigtialplc@gmail.com'], fail_silently=False)
             person = form.save(commit=False)
             person.is_active = False
             form.save()
