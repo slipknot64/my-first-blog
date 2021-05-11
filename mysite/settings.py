@@ -157,7 +157,7 @@ LOGOUT_REDIRECT_URL = 'home'
 SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
 
 EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER =('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') # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_HOST_USER =('apikey') # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_API_KEY')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
