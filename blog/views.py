@@ -25,19 +25,13 @@ def register(request, *args, **kwargs):
     if request.POST:
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            send_mail(
-                    'Email confirmation',
-                    'Click the link to confirm email.',
-                    'noreply@groovydigital.co.uk',
-                    ['email'],
-                    fail_silently=False,
-                )
             person = form.save(commit=False)
             person.is_active = False
             form.save()
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
+            send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigital.co.uk', ['adilgreet@gmail.com'], fail_silently=False,)
             login(request, account)
             destination = kwargs.get("next")
             if destination:
