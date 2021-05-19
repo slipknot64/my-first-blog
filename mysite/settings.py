@@ -159,11 +159,3 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
-
-EMAIL_HOST = 'smtp.eu.mailgun.org'
-EMAIL_HOST_USER = 'postmaster@groovydigital.co.uk'
-EMAIL_HOST_PASSWORD = 'f2de3f14459ac3f67b92c991fba42351-6ae2ecad-c68b81fc'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-DEFAULT_FROM_EMAIL = 'postmaster@groovydigital.co.uk'

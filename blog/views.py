@@ -31,7 +31,6 @@ def register(request, *args, **kwargs):
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
-            send_mail('Email confirmation', 'Click the link to confirm email.', 'postmaster@groovydigital.co.uk', ['email'], fail_silently=False,)
             login(request, account)
             destination = kwargs.get("next")
             if destination:
@@ -40,6 +39,15 @@ def register(request, *args, **kwargs):
         else:
             context['registration_form'] = form
     return render(request, 'blog/bootstrap.html', context)
+
+def send_simple_message():
+	return requests.post(
+		"https://api.mailgun.net/v3/groovydigital.co.uk/messages",
+		auth=("api", "d1f3552143e78655f33b56e66f4bea69-6ae2ecad-25ddd8f1"),
+		data={"from": "Excited User <mailgun@groovydigital.co.uk>",
+			"to": ["email", "noreply@groovydigital.co.uk"],
+			"subject": "Hello",
+			"text": "Testing some Mailgun awesomness!"})
 
 #def signin(request):
     #if request.method == "POST":
