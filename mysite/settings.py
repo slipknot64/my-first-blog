@@ -159,8 +159,8 @@ SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = os.getenv("SENDGRID_API_KEY") # this is your API key
+EMAIL_HOST_PASSWORD = ("SENDGRID_API_KEY") # this is your API key
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
 DEFAULT_FROM_EMAIL = ("DEFAULT_FROM_EMAIL") # this is the sendgrid email
