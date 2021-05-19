@@ -31,7 +31,7 @@ def register(request, *args, **kwargs):
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
-            send_mail('Email confirmation', 'Click the link to confirm email.', 'noreply@groovydigital.co.uk', ['email'], fail_silently=False,)
+            send_mail('Email confirmation', 'Click the link to confirm email.', 'postmaster@groovydigital.co.uk', ['email'], fail_silently=False,)
             login(request, account)
             destination = kwargs.get("next")
             if destination:
