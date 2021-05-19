@@ -4,6 +4,8 @@ from .forms import UserAccountForm
 from .forms import ProductForm
 from .forms import AuthenticationForm
 from .forms import RegistrationForm
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework import generics
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
@@ -13,6 +15,9 @@ from django.utils import timezone
 from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.core import serializers
+from django.urls import reverse
+from django.contrib.sites.shortcuts import get_current_site
+from .utils import Util
 import json
 import datetime
 from .utils import cookieCart, cartData, guestOrder
@@ -31,6 +36,15 @@ def register(request, *args, **kwargs):
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
+            user_data = serializer.data
+            user = User.objects.get(email=user_data['email'])
+            token=RefreshToken.for_user(user).access_token
+            current_site=get_current_site(request)
+            relativeLink=reverse('email-verify')
+            absurl='http://'+current_site+relativeLink+"?token="+token
+            email_body = 'Hi '+user.username+' Use link below to verify your email \n'+ absurl
+            data={'email_body': email_body, 'email_subject': 'Verify your email'}
+            Util.send_mail(data)
             send_mail('Email confirmation', 'Click the link to confirm email.', 'groovydigitalplc@gmail.com', ['adilgreet@gmail.com'], fail_silently=False,)
             login(request, account)
             destination = kwargs.get("next")
@@ -41,6 +55,9 @@ def register(request, *args, **kwargs):
             context['registration_form'] = form
     return render(request, 'blog/bootstrap.html', context)
 
+class VerifyEmail(generics.GenericAPIView):
+    def get(self):
+        pass
 #def signin(request):
     #if request.method == "POST":
       #  form = AccountCheckForm(request.POST)

@@ -81,6 +81,12 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -159,8 +165,8 @@ SENDGRID_SANDBOX_MODE_IN_DEBUG=False
 
 EMAIL_HOST = 'smtp.sendgrid.net'
 EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = ("SENDGRID_API_KEY") # this is your API key
+EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_API_KEY") # this is your API key
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
-DEFAULT_FROM_EMAIL = ("DEFAULT_FROM_EMAIL") # this is the sendgrid email
+DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL") # this is the sendgrid email

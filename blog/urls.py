@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.urls import include
-from .views import (HomeView, ItemDetailView,)
+from .views import (HomeView, ItemDetailView, VerifyEmail,)
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -10,6 +10,7 @@ from blog.views import (register,)
 
 urlpatterns = [
     path('register/', views.register, name='register'),
+    path('email-verify/', VerifyEmail.as_view, name='email-verify'),
 	path('Terms/', views.Terms, name='Terms'),
 	#path('social_login/', views.signin, name='social_login'),
     path('', HomeView.as_view(), name='home'),
