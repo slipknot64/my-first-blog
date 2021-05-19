@@ -160,13 +160,10 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-SENDGRID_API_KEY = ("SENDGRID_API_KEY")
-SENDGRID_SANDBOX_MODE_IN_DEBUG=False
-
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
-EMAIL_HOST_PASSWORD = os.environ.get("SENDGRID_API_KEY") # this is your API key
-EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = 'noreply@groovydigital.co.uk'
+EMAIL_HOST = os.environ.get('MAILGUN_SMTP_SERVER', '')
 EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'sendgrid_backend.SendgridBackend'
-DEFAULT_FROM_EMAIL = os.environ.get("DEFAULT_FROM_EMAIL") # this is the sendgrid email
+EMAIL_PORT = os.environ.get('MAILGUN_SMTP_PORT', '')
+EMAIL_HOST_USER = os.environ.get('MAILGUN_SMTP_LOGIN', '')
+EMAIL_HOST_PASSWORD = os.environ.get('MAILGUN_SMTP_PASSWORD', '')
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
