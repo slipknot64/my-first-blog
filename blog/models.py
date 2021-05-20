@@ -77,6 +77,8 @@ CATEGORY_CHOICES = (
     ('PS', 'PlayStation'),
     ('MS', 'Microsoft'),
     ('NT', 'Nintendo'),
+    ('AD', 'Android'),
+    ('IP', 'IPhone'),
 )
 
 class Customer(models.Model):
