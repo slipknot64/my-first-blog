@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
 from django.core.mail import send_mail
 from django.http import JsonResponse
@@ -75,9 +75,17 @@ def Terms(request):
 #        data = product.values()
 #        return JsonResponse(list(data), safe=False)
 
-class HomeView(ListView):
-    model = Product
-    template_name = "blog/Homepage.html"
+class HomeView(View):
+    def get(self, request):
+        data = cartData(request)
+        cartItems = data['cartItems']
+        order = data['order']
+        items = data['items']
+
+        context = {'items':items, 'order':order, 'cartItems':cartItems}
+        return render(request, 'blog/Homepage.html', context)
+        model = Product
+        template_name = "blog/Homepage.html"
 
 class ItemDetailView(DetailView):
     model = Product
