@@ -152,7 +152,7 @@ def xboxseries(request):
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/xboxseries.html', context)
+    return render(request, 'blog/comingsoon.html', context)
 
 def playstation5(request):
     data = cartData(request)
@@ -161,7 +161,7 @@ def playstation5(request):
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/playstation5.html', context)
+    return render(request, 'blog/comingsoon.html', context)
 
 def PlayStation(request):
     data = cartData(request)
@@ -170,7 +170,7 @@ def PlayStation(request):
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/PlayStation.html', context)
+    return render(request, 'blog/comingsoon.html', context)
 
 def Microsoft(request):
     data = cartData(request)
@@ -179,7 +179,7 @@ def Microsoft(request):
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/Microsoft.html', context)
+    return render(request, 'blog/comingsoon.html', context)
 
 def Nintendo(request):
     data = cartData(request)
@@ -188,7 +188,7 @@ def Nintendo(request):
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/Nintendo.html', context)
+    return render(request, 'blog/comingsoon.html', context)
 
 def TV(request):
     data = cartData(request)
@@ -197,7 +197,7 @@ def TV(request):
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/TV Electronics.html', context)
+    return render(request, 'blog/comingsoon.html', context)
 
 def Smartphones(request):
     data = cartData(request)
@@ -206,7 +206,7 @@ def Smartphones(request):
     items = data['items']
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
-    return render(request, 'blog/Tablets mobiles.html', context)
+    return render(request, 'blog/comingsoon.html', context)
     
 def MobilePhones(request):
     data = cartData(request)
@@ -225,6 +225,51 @@ def IPhones(request):
 
     context = {'items':items, 'order':order, 'cartItems':cartItems}
     return render(request, 'blog/apple-iphone.html', context)
+    
+def PC(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/comingsoon.html', context)
+    
+def sale(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/comingsoon.html', context)
+    
+def Ubisoft(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/comingsoon.html', context)
+    
+def all_brands(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/comingsoon.html', context)
+    
+def january_sale(request):
+    data = cartData(request)
+    cartItems = data['cartItems']
+    order = data['order']
+    items = data['items']
+
+    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    return render(request, 'blog/comingsoon.html', context)
 
 def product_list(request):
     products = Product.objects.all()
