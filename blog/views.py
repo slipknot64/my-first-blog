@@ -67,6 +67,13 @@ def Terms(request):
 #        return JsonResponse(list(data), safe=False)
 
 class HomeView(ListView):
+    #def get(self, request):
+    #    data = cartData(request)
+    #    cartItems = data['cartItems']
+    #    order = data['order']
+    #    items = data['items']
+    #    context = {'items':items, 'order':order, 'cartItems':cartItems}
+    #    return render(request, 'blog/Homepage.html', context)
         model = Product
         template_name = "blog/Homepage.html"
 

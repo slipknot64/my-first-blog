@@ -1030,7 +1030,7 @@ console.log('Cart:', cart)
         </div>
       </div>
       <div class="itemcard_order_button_wrapper_text item_qty_wrapper_text">
-        <button type="submit" class="itemcard_order_submit_button button button_primary itemcard_order_submit_button_active">
+        <button data-product={{product.id}} data-action="add" class="itemcard_order_submit_button button button_primary itemcard_order_submit_button_active btn btn-outline-secondary add-btn update-cart">
           <span>Buy</span>
           <i class="fa fa-shopping-cart"></i>
         </button>
