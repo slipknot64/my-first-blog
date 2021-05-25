@@ -1,10 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from blog.models import Account
-from .models import Customer
-from .models import Image
+from .models import Account
 from .models import Product, OrderItem, Order, ShippingAddress
 from .models import *
+from .models import ProductImage
 
 class AccountAdmin(UserAdmin):
     list_display = ('email', 'username', 'date_joined', 'last_login', 'is_admin', 'is_staff')
@@ -14,10 +13,23 @@ class AccountAdmin(UserAdmin):
     list_filter = ()
     fieldsets = ()
 
+class ProductImageAdmin(admin.StackedInline):
+    model=ProductImage
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    inlines = [ProductImageAdmin]
+
+    class Meta:
+        model=Product
+
+@admin.register(ProductImage)
+class ProductImageAdmin(admin.ModelAdmin):
+    pass
+
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Customer)
 admin.site.register(Image)
-admin.site.register(Product)
 admin.site.register(OrderItem)
 admin.site.register(Order)
 admin.site.register(ShippingAddress)

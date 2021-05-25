@@ -102,7 +102,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=7, decimal_places=2)
     digital = models.BooleanField(default=False, null=True, blank=False)
     description = models.TextField()
-    image = models.ImageField(null=True, blank=True)
+    image = models.ImageField(blank=True)
     stock = models.IntegerField(default='0')
     pre_order = models.IntegerField(default='0')
     back_order = models.IntegerField(default='0')
@@ -137,6 +137,13 @@ class Product(models.Model):
         return reverse("remove_from_cart", kwargs={
             'slug': self.slug
         })
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='images/')
+
+    def __str__(self):
+        return self.product.title
 
 class Image(models.Model):
     image = models.ImageField(blank=True, null=True)

@@ -1,4 +1,4 @@
-from .models import Product, OrderItem, Order, ShippingAddress, User, reverse, timezone, models, settings, Image, CATEGORY_CHOICES, Customer
+from .models import Product, OrderItem, Order, ShippingAddress, User, reverse, timezone, models, settings, Image, CATEGORY_CHOICES, Account, ProductImage
 from .forms import AccountCheckForm
 from .forms import UserAccountForm
 from .forms import ProductForm
@@ -10,7 +10,6 @@ from django.http import HttpResponse
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, View
 from django.utils import timezone
-from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.core import serializers
 import json
@@ -31,14 +30,6 @@ def register(request, *args, **kwargs):
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
-            def send_simple_message():
-	            return requests.post(
-		"https://api.mailgun.net/v3/groovydigital.co.uk/messages",
-		auth=("api", "d1f3552143e78655f33b56e66f4bea69-6ae2ecad-25ddd8f1"),
-		data={"from": "Excited User <mailgun@groovydigital.co.uk>",
-			"to": ["email", "noreply@groovydigital.co.uk"],
-			"subject": "Hello",
-			"text": "Testing some Mailgun awesomness!"})
             login(request, account)
             destination = kwargs.get("next")
             if destination:
@@ -75,15 +66,7 @@ def Terms(request):
 #        data = product.values()
 #        return JsonResponse(list(data), safe=False)
 
-class HomeView(View):
-    def get(self, request):
-        data = cartData(request)
-        cartItems = data['cartItems']
-        order = data['order']
-        items = data['items']
-
-        context = {'items':items, 'order':order, 'cartItems':cartItems}
-        return render(request, 'blog/Homepage.html', context)
+class HomeView(ListView):
         model = Product
         template_name = "blog/Homepage.html"
 
@@ -283,6 +266,14 @@ def product_list(request):
     products = Product.objects.all()
     return render(request, 'blog/product_list.html', {'products' : products})
 
+def detail_view(request, id):
+    product = get_object_or_404(Product, id=id)
+    photos = ProductImage.objects.filter(product=product)
+    return render(request, 'detail.html', {
+        'product':product,
+        'photos':photos
+    })
+
 #def product_detail(request, pk):
 #    product = get_object_or_404(Product, pk=pk)
 #    return render(request, 'blog/product_detail.html', {'product': product})
@@ -316,8 +307,8 @@ def login_request(request):
         form = AccountCheckForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            #check = Customer.objects.get(email = user.email)
-            check = Customer.objects.get(name = user.name)
+            #check = Account.objects.get(email = user.email)
+            check = Account.objects.get(name = user.name)
             if check.password == user.password:
                 user = authenticate(name=user.name, password=user.password)
             if user is not None:

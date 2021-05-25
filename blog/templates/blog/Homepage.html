@@ -688,21 +688,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="group col-xs-12 marginTop--small"><div class='row'><div class='noBackground'>
 <div class="tile_1_1_height col-xs-12 col-md-6 tile_bg_bottom"><div class="advertisement_collection_wrapper">
             <div class="collection advertisement_tile collection_wrapper collection_advertisement_tiles">
-            <a href="https://www.groovydigital.co.uk/item/2/">
+			{% for product in object_list %}
+            <a href="{{ product.get_absolute_url }}">
                 <div class="">
                     <div class="collection_content img_wrapper">
-                                                <img src="static/GameImgs/55675_2_c-resident-evil-hp.jpg">
+                                                <img src="{{product.image.url}}">
                         <div class="teaser_content">
                             <div class="headline_explanation_wrapper">
                                 <div class="collection_content headline">
-                                    Resident Evil Village Steel Book Edition (PS5)                                </div>
+                                   {{ product.title }}                                </div>
                                 <div class="collection_content explanation">
                                     <div class='collection_content description'><div class="collection_content_inner">The next gen of survival horror!.</div></div>                                </div>
                             </div>
                             <div class="button_price_wrapper">
                                 <div class="price_availability_wrapper">
                                     <div class="collection_content price">
-                                        <div class='collection_content priceinfo'><div class="collection_content_inner">Instant Delivery</div></div>                                    </div>
+                                        <div class='collection_content priceinfo'><div class="collection_content_inner">BUY NOW</div></div>                                    </div>
                                     <div class="collection_content availability">
                                         <div class='collection_content availability_info'><div class="collection_content_inner"></div></div>                                    </div>
                                 </div>
@@ -718,10 +719,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 <div class="col-xs-12 col-md-6 tile_bg_bottom tile_1_1_height"><div class="advertisement_collection_wrapper">
             <div class="collection advertisement_tile collection_wrapper collection_advertisement_tiles">
-            <a href="https://www.groovydigital.co.uk/item/1/">
+            <a href="{{ product.get_absolute_url }}">
                 <div class="">
                     <div class="collection_content img_wrapper">
-                                                <img src="static/Imgs/iphone12.jpeg">
+                                                <img src="{{product.image.url}}">
                         <div class="teaser_content">
                             <div class="headline_explanation_wrapper">
                                 <div class="collection_content headline">
@@ -737,7 +738,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                         <div class='collection_content availability_info'><div class="collection_content_inner"></div></div>                                    </div>
                                 </div>
                                 <div class="button button_primary">
-                                    <div class='collection_content button_text'><div class="collection_content_inner">FROM £1099.99</div></div>                                </div>
+                                    <div class='collection_content button_text'><div class="collection_content_inner">FROM £1099.99</div></div>   {% endfor %}                             </div>
                             </div>
                         </div>
                     </div>
