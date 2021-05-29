@@ -20,8 +20,8 @@ from mysite import settings
 from blog import views
 from blog.views import(
     register,
-    login_request,
-    logout_request,
+    login_view,
+    logout_view,
 )
 
 urlpatterns = [
@@ -29,5 +29,7 @@ urlpatterns = [
 	path('', include('blog.urls')),
     path('accounts/', include('allauth.urls')),
     path('register/', register, name="register"),
+    path('login/', login_view, name="login"),
+    path('logout/', logout_view, name="logout"),
     path('<int:id>/', views.detail_view, name='detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

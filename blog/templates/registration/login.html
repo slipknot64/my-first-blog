@@ -22,8 +22,7 @@
 {% load i18n %}
 
 {% block content %}
-
-<form class="signup" id="signup_form" method="post" action="{% url 'account_login' %}">
+<form class="login" method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <h2 class="text-center">Sign in</h2>
@@ -37,10 +36,19 @@
 		<div class="container">
            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Login</button>
         </form>
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% for field in login_form %}
+  <p>
+  {% for error in field.errors %}
+  <p style="color: red">{{ error }}</p>
+  {% endfor %}
+  </p>
+  {% endfor %}
+  {% if login_form.non_field_errors %}
+  <div style="color: red">
+  <p>{{login_form.non_field_errors}}</p>
+  </div>
+
   {% endif %}
-  <button class="signupbtn" type="submit">{% trans "Sign Up" %} &raquo;</button>
 </form>
 <link rel="stylesheet" href="{% static 'Social Login.css' %}">
 

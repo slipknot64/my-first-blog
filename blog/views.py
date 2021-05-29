@@ -1,10 +1,6 @@
 from .models import Product, OrderItem, Order, ShippingAddress, User, reverse, timezone, models, settings, Image, CATEGORY_CHOICES, Account, ProductImage
-from .forms import AccountCheckForm
-from .forms import UserAccountForm
-from .forms import ProductForm
-from .forms import AuthenticationForm
-from .forms import RegistrationForm
-from django.contrib.auth import authenticate, login
+from .forms import AccountCheckForm, UserAccountForm, ProductForm, AuthenticationForm, RegistrationForm, AccountAuthenticationForm
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
@@ -31,25 +27,49 @@ def register(request, *args, **kwargs):
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
             login(request, account)
-            destination = kwargs.get("next")
-            if destination:
+            destination = get_redirect_if_exists(request)
+            if destination: # if destination != None
                 return redirect(destination)
             return redirect("home")
         else:
             context['registration_form'] = form
     return render(request, 'blog/bootstrap.html', context)
 
-#def signin(request):
-    #if request.method == "POST":
-      #  form = AccountCheckForm(request.POST)
-       # if form.is_valid():
-           # user = form.save(commit=False)
-           # check = Customer.objects.get(email = user.email)
-            #if check.password == user.password:
-             #   return redirect('home')
-   # else:
-      #  form = AccountCheckForm()
-    #return render(request, 'blog/Social Login Form.html', {'form' : form})
+def login_view(request, *args, **kwargs):
+
+    context = {}
+
+    user = request.user
+    if user.is_authenticated:
+        return redirect("home")
+    
+    if request.POST:
+        form = AccountAuthenticationForm(request.POST)
+        if form.is_valid():
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(email=email, password=password)
+            if user:
+                login(request, user)
+                destination = get_redirect_if_exists(request)
+                if destination:
+                    return redirect(destination)
+                return redirect("home")
+        else:
+            context['login_form'] = form
+    return render(request, "blog/Social Login Form.html", context)
+
+def get_redirect_if_exists(request):
+    redirect = None
+    if request.GET:
+        if request.GET.get("next"):
+            redirect = str(request.Get.get("next"))
+    return redirect
+
+def logout_view(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect("home")
 
 def Terms(request):
     return render(request, 'blog/Terms & Privacy.html')
@@ -302,62 +322,6 @@ def account(request):
         return render(request, 'blog/Account.html', context)
     else:
         return render(request, 'blog/Social Login Form.html')
-
-def logout_request(request):
-    logout(request)
-    messages.info(request, "Logged out successfully!")
-    return redirect("home")
-
-
-def login_request(request):
-    if request.method == 'POST':
-        form = AccountCheckForm(request.POST)
-        if form.is_valid():
-            user = form.save(commit=False)
-            #check = Account.objects.get(email = user.email)
-            check = Account.objects.get(name = user.name)
-            if check.password == user.password:
-                user = authenticate(name=user.name, password=user.password)
-            if user is not None:
-                login(request, user)
-                messages.info(request, f"You are now logged in as {user.name}")
-                return redirect('home')
-            else:
-                messages.error(request, "Invalid username or password.")
-                form = AccountCheckForm()
-            return render(request = request, template_name = "blog/Social Login Form.html",context={"form":form})
-
-#def login_request(request, *args, **kwargs):
-
-#    context = {}
-
-#    user = request.user
-#    if user.is_authenticated:
-#        return redirect("home")
-
-#    if request.POST:
-#        form = AccountAuthenticationForm(request.POST)
-#        if form.is_valid():
-#            form.save()
-#            email = request.POST['email']
-#            password = request.POST['password']
-#            user = authenticate(email=email, password=password)
-#            if user:
-#                login(request, user)
-#                destination = get_redirect_if_exists(request)
-#                if destination:
-#                    return redirect(destination)
-#                return redirect("home")
-#        else:
-#            context['login_form'] = form
-#    return render(request, "blog/login.html", context)
-
-#def get_redirect_if_exists(request):
-#    redirect = None
-#    if request.GET:
-#        if request.GET.get("next"):
-#            redirect str(request.Get.get("next"))
-#    return redirect
 
 def updateItem(request):
     data = json.loads(request.body)

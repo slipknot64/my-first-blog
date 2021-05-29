@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
-from blog.models import Account
+from .models import Account
 from .models import *
 from .models import Image
 from .models import Product
@@ -63,12 +63,12 @@ class AccountAuthenticationForm(forms.ModelForm):
         model = Account
         fields = ("email", "password")
     
-    def save(self):
-        email = self.cleaned_data['email']
-        password = self.cleaned_data['password']
-        user = authenticate(email=email, password=password)
-        if user:
-            login(request, user)
+    #def save(self):
+    #    email = self.cleaned_data['email']
+    #    password = self.cleaned_data['password']
+    #    user = authenticate(email=email, password=password)
+    #    if user:
+    #        login(request, user)
 
     def clean(self):
         if self.is_valid():
