@@ -159,3 +159,9 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'postmaster@groovydigital.co.uk'
+EMAIL_HOST_PASSWORD = ('MAILGUN_API_KEY')
+EMAIL_USE_TLS = True

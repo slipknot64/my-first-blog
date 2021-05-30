@@ -2,6 +2,7 @@ from .models import Product, OrderItem, Order, ShippingAddress, User, reverse, t
 from .forms import AccountCheckForm, UserAccountForm, ProductForm, AuthenticationForm, RegistrationForm, AccountAuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
+from django.core.mail import send_mail
 from django.http import HttpResponse
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, View
@@ -26,6 +27,7 @@ def register(request, *args, **kwargs):
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
             account = authenticate(email=email, password=raw_password)
+            send_mail('subject', 'body of the message', 'noreply@groovydigital.co.uk', ['adilgreet@gmail.com'])
             login(request, account)
             destination = get_redirect_if_exists(request)
             if destination: # if destination != None
