@@ -25,6 +25,9 @@ SECRET_KEY =('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Development only
+
 ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com', 'groovydigital.herokuapp.com', 'www.groovydigital.co.uk']
 
 AUTH_USER_MODEL = 'blog.Account'
@@ -159,9 +162,3 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
-
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'postmaster@groovydigital.co.uk'
-EMAIL_HOST_PASSWORD = ('MAILGUN_API_KEY')
-EMAIL_USE_TLS = True

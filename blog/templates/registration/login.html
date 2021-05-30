@@ -36,6 +36,9 @@
 		<div class="container">
            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Login</button>
         </form>
+        <div class="btn btn-outline-info">
+          <a class="m-auto" href="{% url 'password_reset' %}">Reset Password</a>
+        </div>
   {% for field in login_form %}
   <p>
   {% for error in field.errors %}

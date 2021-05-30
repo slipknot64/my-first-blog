@@ -46,6 +46,9 @@
 		<div class="container">
            <button style="background-color:#F4EB16; color:blue" class="btn btn-outline-info" type="submit">Login</button>
         </form>
+        <div class="btn btn-outline-info">
+            <a style="color:red" href="{% url 'password_reset' %}">Reset Password</a>
+          </div>
         Don't have an account? <a href="{% url 'register' %}" target="blank"><strong>register here</strong></a>!
     </div>
 	{% endblock %}
