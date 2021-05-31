@@ -312,6 +312,7 @@ def delivery(request):
 #    return render(request, 'blog/item.html')
 
 def account(request):
+    user = request.user
     data = cartData(request)
     cartItems = data['cartItems']
     order = data['order']
