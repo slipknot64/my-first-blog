@@ -22,6 +22,8 @@ def register(request, *args, **kwargs):
         if form.is_valid():
             person = form.save(commit=False)
             person.is_active = False
+            user.first_name = self.cleaned_data['first_name']
+            user.last_name = self.cleaned_data['last_name']
             form.save()
             email = form.cleaned_data.get('email').lower()
             raw_password = form.cleaned_data.get('password1')
@@ -312,7 +314,6 @@ def delivery(request):
 #    return render(request, 'blog/item.html')
 
 def account(request):
-    user = request.user
     data = cartData(request)
     cartItems = data['cartItems']
     order = data['order']
