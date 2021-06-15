@@ -1,0 +1,10 @@
+{% extends "blog/main.html" %}
+<h1>Search Results</h1>
+
+<ul>
+  {% for product in object_list %}
+    <li>
+      {{ product.title }}, {{ product.get_category_display }}
+    </li>
+  {% endfor %}
+</ul>

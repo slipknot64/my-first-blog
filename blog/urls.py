@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 from django.urls import include
-from .views import (HomeView, ItemDetailView,)
+from .views import (HomeView, ItemDetailView, SearchResultsView)
 from django.contrib.auth import views as auth_views
 from django.conf.urls.static import static
 from django.conf import settings
@@ -32,6 +32,7 @@ urlpatterns = [
     path('all_brands', views.all_brands, name='all_brands'),
     path('january_sale', views.january_sale, name='january_sale'),
     path('products/', views.product_list, name='product_list'),
+    path('search/', SearchResultsView.as_view(), name='search_results'),
     path('delivery', views.delivery, name='delivery'),
     path('item/<slug>/', ItemDetailView.as_view(), name='item'),
     path('account', views.account, name='account'),

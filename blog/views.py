@@ -4,7 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib import messages
-from django.views.generic import ListView, DetailView, View
+from django.db.models import Q
+from django.views.generic import ListView, DetailView, View, TemplateView
 from django.utils import timezone
 from django.http import JsonResponse
 from django.core import serializers
@@ -86,16 +87,26 @@ def Terms(request):
 #        data = product.values()
 #        return JsonResponse(list(data), safe=False)
 
-class HomeView(ListView):
-    #def get(self, request):
-    #    data = cartData(request)
-    #    cartItems = data['cartItems']
-    #    order = data['order']
-    #    items = data['items']
-    #    context = {'items':items, 'order':order, 'cartItems':cartItems}
-    #    return render(request, 'blog/Homepage.html', context)
+class HomeView(TemplateView):
+    def get(self, request):
+        data = cartData(request)
+        cartItems = data['cartItems']
+        order = data['order']
+        items = data['items']
+        context = {'items':items, 'order':order, 'cartItems':cartItems}
+        return render(request, 'blog/Homepage.html', context)
         model = Product
         template_name = "blog/Homepage.html"
+        
+class SearchResultsView(ListView):
+    model = Product
+    template_name = 'blog/search_results.html'
+    def get_queryset(self): # new
+        query = self.request.GET.get('input_search')
+        object_list = Product.objects.filter(
+            Q(title__icontains=query) | Q(category__icontains=query)
+        )
+        return object_list
 
 class ItemDetailView(DetailView):
     model = Product
