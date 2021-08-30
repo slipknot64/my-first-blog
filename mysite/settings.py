@@ -162,3 +162,5 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
