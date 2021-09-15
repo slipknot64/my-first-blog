@@ -163,6 +163,7 @@ MEDIA_ROOT =  os.path.join(BASE_DIR, 'blog/static/media')
 LOGIN_REDIRECT_URL= 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+<<<<<<< HEAD
 if not DEBUG:
       EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
       EMAIL_HOST_USER = "groovydigitalplc@gmail.com"
@@ -175,3 +176,6 @@ else:
     EMAIL_BACKEND = (
         "django.core.mail.backends.console.EmailBackend"
     )
+=======
+DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
+>>>>>>> aa654d4db54043a7786ab2b99c3eee8d931866d1
