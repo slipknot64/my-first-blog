@@ -127,10 +127,10 @@ const csrftoken = getToken('csrftoken');
 <div id="header_basket" class=" ">
     <div class="shopping_bag user_account_block js-control-mini-basket">
         <a href="{% url 'Cart' %}">
-            <span class="fa fa-shopping-cart" aria-hidden="true"><span class="js-headline-qty basket_amount_badge">0</span></span>
+            <span class="fa fa-shopping-cart" aria-hidden="true"><span class="js-headline-qty basket_amount_badge">{{cartItems}}</span></span>
             <div class="text_wrapper">
                 <span class=" description">Cart </span>
-                <span class="info js-headline-price">£0.00 (0)</span>
+                <span class="info js-headline-price">£{{order.get_cart_total|floatformat:2}} ({{cartItems}})</span>
             </div>
         </a>
     </div>
